@@ -29,7 +29,7 @@
             exit();
         }
         elseif ($visit_type = "emergency") {
-            header("Location: admission.php");
+            header("Location: cehck_admissions.php");
             exit();
         }
         else{

@@ -72,13 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($searchResults)): ?>
             <?php foreach ($searchResults as $patient): ?>
                 <div class="patient-record">
-                    <strong>ID:</strong> <?= htmlspecialchars($patient['patient_id']) ?><br>
+                    <strong>Patient ID:</strong> <?= htmlspecialchars($patient['patient_id']) ?><br>
                     <strong>Name:</strong> <?= htmlspecialchars($patient['name']) ?><br>
                     <strong>Age:</strong> <?= htmlspecialchars($patient['age']) ?><br>
+                    <strong>Date of Birth:</strong> <?= htmlspecialchars($patient['dob']) ?><br>
                     <strong>Sex:</strong> <?= htmlspecialchars($patient['sex']) ?><br>
-                    <strong>Contact:</strong> <?= htmlspecialchars($patient['contact_no']) ?><br>
-                    <strong>Email:</strong> <?= htmlspecialchars($patient['email_id']) ?><br>
-                    <strong>Address:</strong> <?= htmlspecialchars($patient['residential_add']) ?><br>
+                    <strong>Contact number:</strong> <?= htmlspecialchars($patient['contact_no']) ?><br>
+                    <strong>Email address:</strong> <?= htmlspecialchars($patient['email_id']) ?><br>
+                    <strong>Identification proof given:</strong> <?= htmlspecialchars($patient['id_submitted']) ?><br>
+                    <strong>Arrived with escort:</strong> <?= $patient['arrive_w_escort'] ? 'Yes' : 'No' ?><br>
+                    <strong>Name of escort:</strong> <?= htmlspecialchars($patient['escort_name']) ?><br>
+                    <strong>Relation with escort:</strong> <?= htmlspecialchars($patient['relation_w_escort']) ?><br>
+                    <strong>Escort's number:</strong> <?= htmlspecialchars($patient['escort_number']) ?><br>
+                    <strong>Residential address:</strong> <?= htmlspecialchars($patient['residential_add']) ?><br>
                     <strong>Medical History:</strong> <?= htmlspecialchars($patient['medical_history']) ?><br>
                     <strong>First Visit:</strong> <?= htmlspecialchars($patient['first_visit']) ?><br>
                 </div>
