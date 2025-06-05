@@ -48,7 +48,7 @@ if ($reidrectToNewAdmission) {
             margin-bottom: 15px;
             border-radius: 5px;
         }
-        .search-btn, .add-patient-btn {
+        .search-btn, .new-admission-btn {
             padding: 8px 15px;
             background-color: #4CAF50;
             color: white;
@@ -58,11 +58,11 @@ if ($reidrectToNewAdmission) {
             text-decoration: none;
             display: inline-block;
         }
-        .add-patient-btn {
+        .new-admission-btn {
             background-color: #2196F3;
             margin-top: 10px;
         }
-        .search-btn:hover, .add-patient-btn:hover {
+        .search-btn:hover, .new-admission-btn:hover {
             opacity: 0.9;
         }
     </style>
@@ -95,6 +95,6 @@ if ($reidrectToNewAdmission) {
     <?php endif; ?>
 
     <br>
-    <a href="book_appointment.php" class="add-patient-btn">Book New Appointment:</a>
+    <a href="new_admission.php" class="new-admission-btn">New Admission:</a>
 </body>
 </html>
