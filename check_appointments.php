@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Redirect if no appointments found
 if ($redirectToBooking) {
     header("Location: book_appointment.php?patient=".urlencode($_POST['name']));
     exit();
@@ -100,5 +99,8 @@ if ($redirectToBooking) {
 
     <br>
     <a href="book_appointment.php" class="add-patient-btn">Book New Appointment:</a>
+
+    <br>
+    <a href="index.php" class="go-home-btn">Go home</a>
 </body>
 </html>

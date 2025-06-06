@@ -1,5 +1,4 @@
 <?php
-// Database connection and processing
 include("database.php");
 
 $searchResults = [];
@@ -12,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $searchResults[] = $row; // Store results for display later
+            $searchResults[] = $row;
         }
     }
     $searchPerformed = true;
@@ -59,14 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Patient Search</h1>
     
-    <!-- Search Form -->
     <form method="post">
         <label for="name">Enter Patient Name:</label><br>
         <input type="text" id="name" name="name" required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 
-    <!-- Display Search Results -->
     <?php if ($searchPerformed): ?>
         <h2>Search Results</h2>
         <?php if (!empty($searchResults)): ?>
@@ -97,5 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Add New Patient Button -->
     <br>
     <a href="add_patient.php" class="add-patient-btn">Add New Patient:</a>
+    <br>
+    <a href="index.php" class="go-home-btn">Go home</a>
 </body>
 </html>

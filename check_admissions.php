@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="admission-record">
                     <strong>Admission ID:</strong> <?= htmlspecialchars($admission['admission_id']) ?><br>
                     <strong>Patient Name:</strong> <?= htmlspecialchars($admission['patient_name']) ?><br>
+                    <strong>Patient's Condition:</strong> <?= htmlspecialchars($admission['patient_condition']) ?><br>
                     <strong>Department Name:</strong> <?= htmlspecialchars($admission['department_name']) ?><br>
                     <strong>Bed Number:</strong> <?= htmlspecialchars($admission['bed_number']) ?><br>
                     <strong>Admission Date:</strong> <?= htmlspecialchars($admission['admission_date']) ?><br>
@@ -93,6 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_admission.php" class="new-admission-btn">New Admission Page</a>
+    <a href="new_admission.php" class="new-admission-btn">Make a new Admission</a>
+
+    <br>
+    <a href="index.php" class="go-home-btn">Go home</a>
 </body>
 </html>

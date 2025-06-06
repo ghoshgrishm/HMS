@@ -54,5 +54,7 @@ mysqli_close($conn);
 </head>
 <body>
     <a href="add_doctor.php" class="add-doctor-btn">Add New Doctor:</a>
+    <br>
+    <a href="index.php" class="go-home-btn">Go home</a>
 </body>
 </html>
