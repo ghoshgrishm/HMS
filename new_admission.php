@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         VALUES ('$patient_id', '$condition', '$department_id', '$bed_id', '$discharge')";
                 
                 if (mysqli_query($conn, $sql)) {
-                    $update_bed = "UPDATE bed SET status = 'occupied' WHERE bed_id = '$bed_id'";
+                    $update_bed = "UPDATE bed SET bed_status = 'occupied' WHERE bed_id = '$bed_id'";
                     mysqli_query($conn, $update_bed);
 
                     echo "<p style='color:green;'>New admission successfully made.</p>";
