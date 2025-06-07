@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT b.bed_id, b.bed_number, b.bed_status, d.dept_name
             FROM bed b
             JOIN department d ON b.department_id = d.department_id
-            WHERE b.bed_number LIKE '%$bed_number%';";
+            WHERE LOWER(b.bed_number) = LOWER('$bed_number')";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <form method="post">
         Enter the bed number to check its status:<br>
-        <input type="number" name="bed_number" required>
+        <input type="text" name="bed_number" required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 
