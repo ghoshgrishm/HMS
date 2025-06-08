@@ -11,38 +11,37 @@ include("database.php");
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        Please enter the patient's name:<br>
+        Patient's name:<br>
         <input type="text" name="name"><br>
-        Please enter the patient's age:<br>
+        Age:<br>
         <input type="number" name="age"><br>
-        Please enter the patient's date of birth:<br>
+        Date of birth:<br>
         <input type="date" name="dob"><br>
-        Please enter the patient's sex:<br>
+        Sex:<br>
         <select name="sex">
             <option value="">Select Sex</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
         </select><br>
-        Enter the patient's contact number:<br>
+        Patient's contact number:<br>
         <input type="text" name="contact"><br>
-        Enter the patient's Email address:<br>
+        Patient's Email address:<br>
         <input type="email" name="email"><br>
-        Enter the type of Identification proof submitted by the patient:<br>
+        Identification proof submitted by the patient:<br>
         <input type="text" name="id_submitted"><br>
-        Any escort with the patient?<br>
+        Any escort with the patient?(Leave the escort details blank if none)<br>
         <input type="radio" name="escort" value="1" required> Yes<br>
         <input type="radio" name="escort" value="0"> No<br>
-        (Leave the escort details blank if none)<br>
-        Enter the escort's name:<br>
+        Escort's name:<br>
         <input type="text" name="escort_name"><br>
-        Enter the escort's relation with the patient(or vice versa):<br>
+        Escort's relation with the patient(or vice versa):<br>
         <input type="text" name="relation"><br>
-        Enter the escort's number:<br>
+        Escort's number:<br>
         <input type="number" name="escort_num"><br>
-        Enter the patient's residential address:<br>
+        Patient's residential address:<br>
         <input type="text" name="address"><br>
-        Any significant medical history of the patient:<br>
+        Any significant medical history of the patient?<br>
         <input type="text" name="med_his"><br>
         <input type="submit" class="submit-btn" name="submit" value="Submit"><br>
     </form>

@@ -10,11 +10,11 @@ include("database.php");
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        Enter the name of the new doctor:<br>
+        New doctor's name:<br>
         <input type="text" name="name"><br>
-        Enter the doctor's speciality:<br>
+        His/Her speciality:<br>
         <input type="text" name="special"><br>
-        Enter the department name he shall be joining:<br>
+        Enter the department name he/she shall be joining:<br>
         <input type="text" name="dept_name"><br>
         <input type="submit" value="Add Doctor">
     </form>

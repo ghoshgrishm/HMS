@@ -27,15 +27,15 @@ include("database.php");
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        Please enter the patient's name:<br>
+        Patient's name:<br>
         <input type="text" name="patient_name"><br>
-        Please enter the patient's current condition:<br>
+        Patient's current condition:<br>
         <input type="text" name="condition"><br>
-        Please enter the department name:<br>
+        Which department is the patient under?<br>
         <input type="text" name="dept"><br>
-        Please enter the bed number:<br>
+        Bed number:<br>
         <input type="number" name="bed"><br>
-        Enter the predicted discharge date:<br>
+        Predicted discharge date:<br>
         <input type="date" name="discharge"><br>
         <input type="submit" name="submit" value="Submit"><br>
     </form>

@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong>Name:</strong> <?= htmlspecialchars($doctor['doctor_name']) ?><br>
                     <strong>Specialty:</strong> <?= htmlspecialchars($doctor['specialty']) ?><br>
                     <strong>Department:</strong> <?= htmlspecialchars($doctor['dept_name']) ?><br>
-                    Avaialability:<br>
+                    <strong>Slots:</strong><br>
                     <strong>8:00 - 9:00</strong> <?= htmlspecialchars($doctor['eight_to_nine']) ?><br>
                     <strong>9:00 - 10:00</strong> <?= htmlspecialchars($doctor['nine_to_ten']) ?><br>
                     <strong>10:00 - 11:00</strong> <?= htmlspecialchars($doctor['ten_to_eleven']) ?><br>
