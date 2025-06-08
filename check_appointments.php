@@ -74,8 +74,8 @@ if ($redirectToBooking) {
     <h1>Appointment Check</h1>
     
     <form method="post">
-        <label for="name">Enter Patient Name:</label><br>
-        <input type="text" id="name" name="name" required>
+        <label for="patient_name">Enter Patient Name:</label><br>
+        <input type="text" id="patient_name" name="patient_name" required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 

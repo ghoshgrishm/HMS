@@ -5,8 +5,8 @@ $searchResults = [];
 $searchPerformed = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = mysqli_real_escape_string($conn, $_POST["name"]);
-    $sql = "SELECT * FROM patient WHERE name LIKE '%$name%'";
+    $name = mysqli_real_escape_string($conn, $_POST["patient_name"]);
+    $sql = "SELECT * FROM patient WHERE patient_name LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -59,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Patient Search</h1>
     
     <form method="post">
-        <label for="name">Enter Patient Name:</label><br>
-        <input type="text" id="name" name="name" required>
+        <label for="name">Enter Patient's Name:</label><br>
+        <input type="text" id="patient_name" name="patient_name" required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php foreach ($searchResults as $patient): ?>
                 <div class="patient-record">
                     <strong>Patient ID:</strong> <?= htmlspecialchars($patient['patient_id']) ?><br>
-                    <strong>Name:</strong> <?= htmlspecialchars($patient['name']) ?><br>
+                    <strong>Patient's name:</strong> <?= htmlspecialchars($patient['patient_name']) ?><br>
                     <strong>Age:</strong> <?= htmlspecialchars($patient['age']) ?><br>
                     <strong>Date of Birth:</strong> <?= htmlspecialchars($patient['dob']) ?><br>
                     <strong>Sex:</strong> <?= htmlspecialchars($patient['sex']) ?><br>

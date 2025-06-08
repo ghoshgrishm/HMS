@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $address = mysqli_real_escape_string($conn, $address);
         $med_his = mysqli_real_escape_string($conn, $med_his);
 
-        $sql = "INSERT INTO patient (name, age, dob, sex, contact_no, email_id, id_submitted, arrive_w_escort, escort_name, relation_w_escort, escort_number, residential_add, medical_history)
+        $sql = "INSERT INTO patient (patient_name, age, dob, sex, contact_no, email_id, id_submitted, arrive_w_escort, escort_name, relation_w_escort, escort_number, residential_add, medical_history)
                 VALUES ('$name', '$age', '$dob', '$sex', '$contact', '$email', '$id_submitted', '$escort', '$escort_name', '$relation', '$escort_num', '$address', '$med_his')";
 
         if (mysqli_query($conn, $sql)) {

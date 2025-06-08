@@ -7,12 +7,12 @@ $msg = $err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['search'])) {
-        $name = trim($_POST["name"]);
+        $name = trim($_POST["patient_name"]);
         if (empty($name)) {
             $err = "Please enter a name.";
         } else {
             $name = mysqli_real_escape_string($conn, $name);
-            $sql = "SELECT * FROM patient WHERE name = '$name'";
+            $sql = "SELECT * FROM patient WHERE patient_name = '$name'";
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 $patients = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -89,7 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- Step 1: Enter name -->
 <form method="post">
-    Enter Patient Name: <input type="text" name="name" required>
+    Enter Patient Name:<br>
+    <input type="text" name="patient_name" required><br>
     <button type="submit" name="search" class="btn">Search</button>
 </form>
 
@@ -99,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php foreach ($patients as $p): ?>
         <div class="card" onclick="selectPatient(<?= htmlspecialchars(json_encode($p)) ?>)">
             <strong>ID:</strong> <?= $p['patient_id'] ?> |
-            <strong>Name:</strong> <?= $p['name'] ?> |
+            <strong>Patient's Name:</strong> <?= $p['patient_name'] ?> |
             <strong>Age:</strong> <?= $p['age'] ?> |
             <strong>DOB:</strong> <?= $p['dob'] ?>
         </div>

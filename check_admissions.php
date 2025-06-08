@@ -6,8 +6,8 @@ $searchPerformed = false;
 $showNewAdmissionOption = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name'])) {
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
+    if (isset($_POST['patient_name'])) {
+        $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
         
         $sql = "SELECT a.admission_id, p.name AS patient_name, d.dept_name AS department_name, b.bed_number, a.admission_date, a.predict_discharge
                 FROM admission a
@@ -69,8 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Admission Check</h1>
     
     <form method="post">
-        <label for="name">Enter Patient Name:</label><br>
-        <input type="text" id="name" name="name" required>
+        <label for="patient_name">Enter Patient Name:</label><br>
+        <input type="text" id="patient_name" name="patient_name" required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 

@@ -28,7 +28,7 @@ include("database.php");
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         Please enter the patient's name:<br>
-        <input type="text" name="name"><br>
+        <input type="text" name="patient_name"><br>
         Please enter the patient's current condition:<br>
         <input type="text" name="condition"><br>
         Please enter the department name:<br>
@@ -47,7 +47,7 @@ $name = $condition = $dept = $bed = $discharge = "";
 $err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST["name"]);
+    $name = trim($_POST["patient_name"]);
     $condition = trim($_POST["condition"]);
     $dept = trim($_POST["dept"]);
     $bed = trim($_POST["bed"]);
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $bed = mysqli_real_escape_string($conn, $bed);
         $discharge = mysqli_real_escape_string($conn, $discharge);
 
-        $sql_patient = "SELECT patient_id FROM patient WHERE name = '$name'";
+        $sql_patient = "SELECT patient_id FROM patient WHERE patient_name = '$name'";
         $result_patient = mysqli_query($conn, $sql_patient);
 
         $sql_dept = "SELECT department_id FROM department WHERE dept_name = '$dept'";

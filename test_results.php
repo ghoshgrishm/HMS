@@ -5,8 +5,8 @@ $searchResults = [];
 $searchPerformed = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name'])) {
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
+    if (isset($_POST['patient_name'])) {
+        $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
         
         $sql = "SELECT t.test_id, t.test_type, t.results, p.name AS patient_name
         FROM test t
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form method="post">
         <label for="name">Enter Patient Name:</label><br>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="patient_name" name="patient_name" required>
         <button type="submit" class="btn search-btn">Search</button>
     </form>
 
