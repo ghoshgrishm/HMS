@@ -92,8 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <a href="new_test.php" class="btn action-btn">Add New Test</a>
     <br>
-    <br>
-    <a href="index.php" class="btn action-btn">Go Home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 
 </body>
 </html>

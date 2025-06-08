@@ -77,6 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 </head>
 <body>
     <br>
-    <a href="index.php" class="go-home-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

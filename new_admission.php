@@ -121,6 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <a href="check_admissions.php" class="check-admissions-btn">Check Admissions</a>
     <br>
-    <a href="index.php" class="go-home-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

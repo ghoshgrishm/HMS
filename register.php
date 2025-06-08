@@ -17,9 +17,12 @@
         Register as:<br>
         <select name="user_type" required>
             <option value="">User type</option>
-            <option value="Male">Doctor</option>
-            <option value="Female">Department</option>
-            <option value="Other">Lab</option>
+            <option value="Admin">Admin</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Nurse">Nurse</option>
+            <option value="Reception">Reception</option>
+            <option value="Lab">Lab</option>
+            <option value="Accountant">Accountant</option>
         </select><br>
         Enter your email address:<br>
         <input type="email" name="email_id" required><br>
@@ -29,7 +32,7 @@
         <input type="text" name="username" required><br>
         Make a Password:<br>
         <input type="password" name="password" required><br>
-        <input type="submit" name="submit" value="Login"><br>
+        <input type="submit" name="submit" value="Register"><br>
     </form>
 </body>
 </html>
@@ -43,7 +46,7 @@
     $email_id = trim($_POST["email_id"]);
     $contact_number = trim($_POST["contact_number"]);
     $username = trim($_POST["username"]);
-    $password = trim($_POST["password"]);
+    $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
 
     if (empty($full_name)) {
         $err = "Please enter your full_name";
@@ -72,7 +75,7 @@
         $username = mysqli_real_escape_string($conn, $username);
         $password = mysqli_real_escape_string($conn, $password);
 
-        $sql = "INSERT INTO patient(username, password, full_name, email_id, contact_number, user_type)
+        $sql = "INSERT INTO user(username, password, full_name, email_id, contact_number, user_type)
                 VALUES ('$username', '$password', '$full_name', '$email_id', '$contact_number', '$user_type')";
 
         if (mysqli_query($conn, $sql)) {

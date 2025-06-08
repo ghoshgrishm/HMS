@@ -148,6 +148,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <br>
     <a href="view_patients.php" class="view-patient-btn">Search for patients</a>
     <br>
-    <a href="index.php" class="go-home-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

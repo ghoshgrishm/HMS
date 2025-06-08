@@ -101,6 +101,6 @@ if ($redirectToBooking) {
     <a href="book_appointment.php" class="add-patient-btn">Book New Appointment:</a>
 
     <br>
-    <a href="index.php" class="go-home-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

@@ -1,4 +1,4 @@
 <?php
     include("database.php");
-    include("home_doctor.html");
+    include("home_admin.html");
 ?>
