@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN doctor c ON a.doctor_id = c.doctor_id
                 JOIN department d ON a.department_id = d.department_id
-                WHERE p.name LIKE '%$name%'";
+                WHERE LOWER(p.name) LIKE LOWER('%$name%')";
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {

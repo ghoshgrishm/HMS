@@ -6,7 +6,7 @@ $searchPerformed = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST["patient_name"]);
-    $sql = "SELECT * FROM patient WHERE patient_name LIKE '%$name%'";
+    $sql = "SELECT * FROM patient WHERE LOWER(patient_name) LIKE LOWER('%$name%')";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {

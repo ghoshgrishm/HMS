@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN department d ON a.department_id = d.department_id
                 JOIN bed b ON a.bed_id = b.bed_id
-                WHERE p.name LIKE '%$name%'";
+                WHERE LOWER(p.name) LIKE LOWER('%$name%')";
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No admission found for this patient.</p>
+            <p>No admission records found for this patient.</p>
         <?php endif; ?>
     <?php endif; ?>
 

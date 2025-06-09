@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         FROM test t
         JOIN admission a ON t.admission_id = a.admission_id
         JOIN patient p ON a.patient_id = p.patient_id
-        WHERE p.name LIKE '%$name%'";
+        WHERE LOWER(p.name) LIKE LOWER('%$name%')";
         
         $result = mysqli_query($conn, $sql);
 

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT doctor.*, department.dept_name 
             FROM doctor 
             LEFT JOIN department ON doctor.department_id = department.department_id
-            WHERE doctor.doctor_name LIKE '%$doctor_name%'";
+            WHERE LOWER(doctor.doctor_name) LIKE LOWER('%$doctor_name%')";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {

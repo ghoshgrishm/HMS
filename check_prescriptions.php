@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             FROM prescription m
             JOIN appointment a ON m.appointment_id = a.appointment_id
             JOIN patient p ON a.patient_id = p.patient_id
-            WHERE p.patient_name LIKE '%$name%'";
+            WHERE LOWER(p.patient_name) LIKE LOWER('%$name%')";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No patients found matching your search.</p>
+            <p>No prescription records found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
 

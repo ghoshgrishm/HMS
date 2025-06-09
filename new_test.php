@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $err = "Please enter a name.";
         } else {
             $name = mysqli_real_escape_string($conn, $name);
-            $sql = "SELECT * FROM patient WHERE patient_name = '$name'";
+            $sql = "SELECT * FROM patient WHERE LOWER(patient_name) LIKE LOWER('$name')";
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 $patients = mysqli_fetch_all($result, MYSQLI_ASSOC);
