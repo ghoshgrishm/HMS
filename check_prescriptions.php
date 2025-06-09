@@ -6,9 +6,9 @@ $searchPerformed = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST["patient_name"]);
-    $sql = "SELECT p.patient_name, m.medication_id, m.admission_id, m.medicine_details, m.dosage, m.duration, m.charge
-            FROM medication m
-            JOIN admission a ON m.admission_id = a.admission_id
+    $sql = "SELECT p.patient_name, m.prescription_id, m.appointment_id, m.medicine_details, m.dosage, m.duration, m.charge
+            FROM prescription m
+            JOIN appointment a ON m.appointment_id = a.appointment_id
             JOIN patient p ON a.patient_id = p.patient_id
             WHERE p.patient_name LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
@@ -28,19 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Medications</title>
+    <title>Check prescriptions</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .medication-record {
+        .prescription-record {
             border: 1px solid #ddd;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 5px;
         }
-        .search-btn, .add-medication-btn {
+        .search-btn, .add-prescription-btn {
             padding: 8px 15px;
             background-color: #4CAF50;
             color: white;
@@ -50,11 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-decoration: none;
             display: inline-block;
         }
-        .add-medication-btn {
+        .add-prescription-btn {
             background-color: #2196F3;
             margin-top: 10px;
         }
-        .search-btn:hover, .add-medication-btn:hover {
+        .search-btn:hover, .add-prescription-btn:hover {
             opacity: 0.9;
         }
         .go-home-btn {
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <h1>Check Medications</h1>
+    <h1>Check Prescriptions</h1>
     
     <form method="post">
         <label for="patient_name">Enter Patient's Name:</label><br>
@@ -85,15 +85,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if ($searchPerformed): ?>
         <h2>Search Results</h2>
         <?php if (!empty($searchResults)): ?>
-            <?php foreach ($searchResults as $medication): ?>
-                <div class="medication-record">
-                    <strong>Patient's name:</strong> <?= htmlspecialchars($medication['patient_name']) ?><br>
-                    <strong>Medication ID:</strong> <?= htmlspecialchars($medication['medication_id']) ?><br>
-                    <strong>Admission ID:</strong> <?= htmlspecialchars($medication['admission_id']) ?><br>
-                    <strong>Medicine details:</strong> <?= htmlspecialchars($medication['medicine_details']) ?><br>
-                    <strong>Dosage:</strong> <?= htmlspecialchars($medication['dosage']) ?><br>
-                    <strong>Duration:</strong> <?= htmlspecialchars($medication['duration']) ?><br>
-                    <strong>Charge: Rs</strong> <?= htmlspecialchars($medication['charge']) ?><br>
+            <?php foreach ($searchResults as $prescription): ?>
+                <div class="prescription-record">
+                    <strong>Patient's name:</strong> <?= htmlspecialchars($prescription['patient_name']) ?><br>
+                    <strong>Prescription ID:</strong> <?= htmlspecialchars($prescription['prescription_id']) ?><br>
+                    <strong>Appointment ID:</strong> <?= htmlspecialchars($prescription['appointment_id']) ?><br>
+                    <strong>Medicine details:</strong> <?= htmlspecialchars($prescription['medicine_details']) ?><br>
+                    <strong>Dosage:</strong> <?= htmlspecialchars($prescription['dosage']) ?><br>
+                    <strong>Duration:</strong> <?= htmlspecialchars($prescription['duration']) ?><br>
+                    <strong>Charge:</strong> <?= htmlspecialchars($prescription['charge']) ?><br>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_medication.php" class="add-medication-btn">Add new medication:</a>
+    <a href="new_prescription.php" class="add-prescription-btn">Add new prescription:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

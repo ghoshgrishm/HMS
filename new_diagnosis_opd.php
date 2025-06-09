@@ -60,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p style='color:red;'>Error inserting diagnosis: " . mysqli_error($conn) . "</p>";
             }
         } else {
-            echo "<p style='color:red;'>Patient not found or not admitted.</p>";
+            echo "<p style='color:red;'>Patient not found or no recent OPD appointment available.</p>";
         }
     }
-    
+
     mysqli_close($conn);
 }
 ?>
@@ -133,13 +133,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="no">No</option>
         </select><br><br>
 
-        Charge:<br>
-        <input type="number" name="charge" step="0.01" required><br>
+        Charge in INR:<br>
+        <input type="number" name="charge" step="0.01" required><br><br>
 
         <input type="submit" value="Submit"><br><br>
     </form>
 
-    <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>
