@@ -57,6 +57,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .search-btn:hover, .add-diagnosis-btn:hover {
             opacity: 0.9;
         }
+        .go-home-btn {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .go-home-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -91,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="add_diagnosis_opd.php" class="add-diagnosis-btn">Add new diagnosis results:</a>
+    <a href="new_diagnosis_opd.php" class="add-diagnosis-btn">Add new diagnosis results:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

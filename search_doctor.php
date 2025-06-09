@@ -21,7 +21,19 @@
         .btn:hover {
             background-color: #1976D2;
         }
-
+        .go-home-btn {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .go-home-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -52,3 +64,30 @@
         }
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .go-home-btn {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .go-home-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
+</body>
+</html>

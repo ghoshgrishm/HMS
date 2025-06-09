@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .check-admissions-btn {
+        .go-home-btn {
             padding: 8px 15px;
             background-color: #2196F3;
             color: white;
@@ -96,9 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-top: 10px;
         }
-        .check-admissions-btn:hover {
+        .go-home-btn:hover {
             opacity: 0.9;
         }
     </style>
@@ -161,6 +160,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <br>
-    <a href="home_admin.php" class="check-admissions-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

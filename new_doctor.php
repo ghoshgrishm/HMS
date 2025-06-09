@@ -7,6 +7,21 @@ include("database.php");
 <head>
     <meta charset="UTF-8">
     <title>Add Doctor</title>
+    <style>
+        .go-home-btn {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .go-home-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

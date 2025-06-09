@@ -23,6 +23,19 @@ include("database.php");
         .check-admissions-btn:hover{
             opacity: 0.9;
         }
+        .go-home-btn {
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .go-home-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
