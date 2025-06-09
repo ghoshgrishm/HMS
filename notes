@@ -1,7 +1,8 @@
 This file is for storing important points. Temporary, will delete later
 
-Learn about the MD5 encryption
+Apply user authentication
 Manage according to users
 Add prescription/medication report upload(word, pdf, docx)
 fix the new_appointment file
 finish by styling the whole thing
+Finish queries for the billing_ipd, billing, opd and discharge tables
