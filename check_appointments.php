@@ -6,15 +6,16 @@ $searchPerformed = false;
 $redirectToBooking = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name'])) {
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
-        
-        $sql = "SELECT a.appointment_id, p.name AS patient_name, c.doctor_name, d.departnment_name,  a.appointment_date, a.token_number
+    if (isset($_POST['patient_name'])) {
+        $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
+
+        $sql = "SELECT a.appointment_id, p.patient_name AS patient_name, c.doctor_name, d.dept_name, a.token_number
                 FROM appointment a
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN doctor c ON a.doctor_id = c.doctor_id
                 JOIN department d ON a.department_id = d.department_id
                 WHERE LOWER(p.name) LIKE LOWER('%$name%')";
+                
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if ($redirectToBooking) {
-    header("Location: book_appointment.php?patient=".urlencode($_POST['name']));
+    header("Location: book_appointment.php?patient=".urlencode($_POST['patient_name']));
     exit();
 }
 ?>
@@ -93,22 +94,23 @@ if ($redirectToBooking) {
     </form>
 
     <?php if ($searchPerformed && !$redirectToBooking): ?>
-        <h2>Search Results</h2>
-        <?php if (!empty($searchResults)): ?>
-            <?php foreach ($searchResults as $appointment): ?>
-                <div class="appointment-record">
-                    <strong>Appointment ID:</strong> <?= htmlspecialchars($appointment['appointment_id']) ?><br>
-                    <strong>Patient Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?><br>
-                    <strong>Doctor name:</strong> <?= htmlspecialchars($appointment['doctor_name']) ?><br>
-                    <strong>Department name:</strong> <?= htmlspecialchars($appointment['department_name']) ?><br>
-                    <strong>Date:</strong> <?= htmlspecialchars($appointment['date']) ?><br>
-                    <strong>Token Number:</strong> <?= htmlspecialchars($appointment['token_no']) ?><br>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No appointments found for this patient.</p>
-        <?php endif; ?>
+    <h2>Search Results</h2>
+    <?php if (!empty($searchResults)): ?>
+        <?php foreach ($searchResults as $appointment): ?>
+            <div class="patient-record">
+                <strong>Appointment ID:</strong> <?= htmlspecialchars($appointment['appointment_id']) ?><br>
+                <strong>Patient Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?><br>
+                <strong>Doctor Name:</strong> <?= htmlspecialchars($appointment['doctor_name']) ?><br>
+                <strong>Department Name:</strong> <?= htmlspecialchars($appointment['department_name']) ?><br>
+                <strong>Date:</strong> <?= htmlspecialchars($appointment['appointment_date']) ?><br>
+                <strong>Token Number:</strong> <?= htmlspecialchars($appointment['token_number']) ?><br>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No appointments found for this patient.</p>
     <?php endif; ?>
+<?php endif; ?>
+
 
     <br>
     <a href="new_appointment.php" class="add-patient-btn">Book New Appointment:</a>
