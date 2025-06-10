@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['patient_name'])) {
         $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
         
-        $sql = "SELECT a.admission_id, p.patient_name AS patient_name, d.dept_name AS department_name, b.bed_number, a.admission_date, a.predict_discharge
+        $sql = "SELECT a.admission_id, p.patient_name AS patient_name, d.dept_name AS department_name, b.bed_number, a.patient_condition, a.admission_date, a.predict_discharge
                 FROM admission a
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN department d ON a.department_id = d.department_id
