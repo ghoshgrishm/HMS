@@ -77,7 +77,8 @@ label {
     color: #003366;
 }
 
-input[type="text"], 
+input[type="text"],
+input[type="password"],
 input[type="email"], 
 input[type="tel"], 
 input[type="date"], 
@@ -98,6 +99,7 @@ textarea {
 }
 
 input[type="text"]::placeholder,
+input[type="password"]::placeholder,
 input[type="email"]::placeholder,
 input[type="tel"]::placeholder,
 textarea::placeholder {

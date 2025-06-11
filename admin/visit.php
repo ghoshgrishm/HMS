@@ -26,7 +26,7 @@
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $visit_type = $_POST["visit_type"];
         if ($visit_type == "appointment") {
-            header("Location: new_appointments.php");
+            header("Location: new_appointment.php");
             exit();
         }
         elseif ($visit_type = "emergency") {

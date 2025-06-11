@@ -1,7 +1,6 @@
 <?php
 session_start();
 $_SESSION['admin_logged_in'] = true;
-$_SESSION['user_id'] = $user_id;
 
 
 include("database.php");
@@ -62,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Login - Sinbadh Hospitals</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -78,6 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
     <h2>Not registered yet?</h2>
-    <a href="register.php">Register</a>
+    <a href="register.php" class="go-home-btn">Register</a>
 </body>
 </html>

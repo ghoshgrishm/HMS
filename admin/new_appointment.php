@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $step = 1;
 $selected_patient = $selected_doctor = $selected_slot = null;
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Insert into appointment table
         $today = date("Y-m-d");
         $token = rand(1000, 9999);
-        mysqli_query($conn, "INSERT INTO appointment (patient_id, doctor_id, department_id, appointement_date, appointment_slot, Token_number)
+        mysqli_query($conn, "INSERT INTO appointment (patient_id, doctor_id, department_id, appointment_date, appointment_slot, Token_number)
                             VALUES ($selected_patient, $selected_doctor, $department_id, '$today', '$selected_slot', $token)");
 
         // Update doctor's slot to 'unavailable'
