@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -8,11 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['patient_name'])) {
         $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
         
-        $sql = "SELECT t.test_id, t.test_type, t.results, p.name AS patient_name
+        $sql = "SELECT t.test_id, t.test_type, t.results, p.patient_name AS patient_name
         FROM test t
         JOIN admission a ON t.admission_id = a.admission_id
         JOIN patient p ON a.patient_id = p.patient_id
-        WHERE LOWER(p.name) LIKE LOWER('%$name%')";
+        WHERE LOWER(p.patient_name) LIKE LOWER('%$name%')";
         
         $result = mysqli_query($conn, $sql);
 
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No test records found for the given patient name.</p>
+            <p class="error-message">No test records found for the given patient name.</p>
         <?php endif; ?>
     <?php endif; ?>
 

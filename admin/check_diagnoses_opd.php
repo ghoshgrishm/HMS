@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No diagnosis reports found matching your search.</p>
+            <p class="error-message">No diagnosis reports found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
 

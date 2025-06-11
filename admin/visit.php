@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit type Selection</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <p style='color:green;'>Patient added successfully.</p>
@@ -25,15 +26,15 @@
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $visit_type = $_POST["visit_type"];
         if ($visit_type == "appointment") {
-            header("Location: check_appointments.php");
+            header("Location: new_appointments.php");
             exit();
         }
         elseif ($visit_type = "emergency") {
-            header("Location: check_admissions.php");
+            header("Location: new_admission.php");
             exit();
         }
         else{
-            echo "<p style='color:red;'>Please select a visit type.</p>";
+            echo "<p class='error-message'>Please select a visit type.</p>";
         }
     }
 ?>

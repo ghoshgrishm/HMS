@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $patients = [];
 $beds = [];
@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             while ($row = mysqli_fetch_assoc($result)) {
                 $patients[] = $row;
             }
-            if (empty($patients)) $err = "No patients found.";
+            if (empty($patients)) $err = "No patients found matching your entry.";
         } else {
-            $err = "Enter a name";
+            $err = "Please enter a name";
         }
     }
 
@@ -97,14 +97,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>New Admission</title>
     <style>
         .box { padding:10px; margin:5px; border:1px solid #ccc; display:inline-block; cursor:pointer; }
-        .success { color: green; }
-        .error { color: red; }
+        .success-message { color: green; }
+        .error-message { color: red; }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>New Admission</h1>
-    <?php if ($msg) echo "<p class='success'>$msg</p>"; ?>
-    <?php if ($err) echo "<p class='error'>$err</p>"; ?>
+    <?php if ($msg) echo "<p class='success-message'>$msg</p>"; ?>
+    <?php if ($err) echo "<p class='error-message'>$err</p>"; ?>
 
     <!-- Step 1: Search patient -->
     <form method="post">
@@ -159,5 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="hidden" name="admit_patient" value="1">
         </form>
     <?php endif; ?>
+    <br>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

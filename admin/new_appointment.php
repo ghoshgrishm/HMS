@@ -55,13 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_POST['search_patient'])) {
     $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
     $res = mysqli_query($conn, "SELECT * FROM patient WHERE patient_name LIKE '%$name%'");
-    while ($row = mysqli_fetch_assoc($res)) {
-        echo "<form method='post'>
-            <input type='hidden' name='select_patient' value='{$row['patient_id']}'>
-            <button type='submit'>
-                {$row['patient_name']} <br> Age: {$row['age']} <br> DOB: {$row['dob']} <br> Sex: {$row['sex']}
-            </button>
-        </form>";
+    if (mysqli_num_rows($res)>0) 
+    {
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo "<form method='post'>
+                <input type='hidden' name='select_patient' value='{$row['patient_id']}'>
+                <button type='submit'>
+                    {$row['patient_name']} <br> Age: {$row['age']} <br> DOB: {$row['dob']} <br> Sex: {$row['sex']}
+                </button>
+            </form>";
+        }
+    }
+    else {
+        echo "<p class='error-message'>No patient record found matching your entry</p>";
     }
 }
 endif;
@@ -131,3 +137,16 @@ endif;
     }
     ?>
 <?php endif; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <br>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
+</body>
+</html>

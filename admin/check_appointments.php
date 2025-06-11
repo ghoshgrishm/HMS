@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if ($redirectToBooking) {
-    header("Location: book_appointment.php?patient=".urlencode($_POST['patient_name']));
+    header("Location: new_appointment.php?patient=".urlencode($_POST['patient_name']));
     exit();
 }
 ?>
@@ -69,7 +69,7 @@ if ($redirectToBooking) {
             </div>
         <?php endforeach; ?>
     <?php else: ?>
-        <p>No appointments found for this patient.</p>
+        <p class="error-message">No appointments found for this patient.</p>
     <?php endif; ?>
 <?php endif; ?>
 

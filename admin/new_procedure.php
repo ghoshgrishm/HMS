@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $patients = [];
 $msg = $err = "";
@@ -93,13 +93,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <h2>Record Procedure for Patient</h2>
 
-<?php if ($err): ?><p class="error"><?= $err ?></p><?php endif; ?>
-<?php if ($msg): ?><p class="success"><?= $msg ?></p><?php endif; ?>
+<?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
+<?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>
 
 <!-- Step 1: Enter name -->
 <form method="post">

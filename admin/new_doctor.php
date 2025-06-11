@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ include("database.php");
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

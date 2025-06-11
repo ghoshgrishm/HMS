@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 ?>
 
 <!DOCTYPE html>
@@ -123,29 +123,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .submit-btn, .view-patient-btn, .go-home-btn {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .view-patient-btn, .go-home-btn {
-            background-color: #2196F3;
-            margin-top: 10px;
-        }
-        .search-btn:hover, .add-patient-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <br>
-    <a href="view_patients.php" class="view-patient-btn">Search for patients</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

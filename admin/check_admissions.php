@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No admission records found for this patient.</p>
+            <p class="error-message">No admission records found for this patient.</p>
         <?php endif; ?>
     <?php endif; ?>
 

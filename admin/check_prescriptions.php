@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No prescription records found matching your search.</p>
+            <p class="error-message">No prescription records found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
 

@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $patients = [];
 $selected_patient = null;
@@ -97,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Record Patient Test</h2>
 
-<?php if ($err): ?><p class="error"><?= $err ?></p><?php endif; ?>
-<?php if ($msg): ?><p class="success"><?= $msg ?></p><?php endif; ?>
+<?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
+<?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>
 
 <!-- Step 1: Enter name -->
 <form method="post">
@@ -146,6 +146,7 @@ function selectPatient(patient) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <br>

@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Check Bed Status</h1>
@@ -78,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No beds found matching your search.</p>
+            <p class="error-message">No beds found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
     

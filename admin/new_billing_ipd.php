@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $patients = [];
 $msg = $err = "";
@@ -104,3 +104,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <button type="submit" name="submit_billing" class="btn">Submit Billing</button>
 </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <br>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
+</body>
+</html>

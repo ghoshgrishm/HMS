@@ -1,5 +1,5 @@
 <?php
-    include("database.php");
+    include("../database.php");
 
     $sql = "SELECT * FROM department";
     $result = mysqli_query($conn, $sql);

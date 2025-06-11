@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("../database.php");
 
 $patient_name = $test_required = $test_done = $diagnosis_details = $observations = $refer_ipd = $charge = "";
 $err = "";
@@ -54,13 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: new_admission.php");
                     exit();
                 } else {
-                    echo "<p style='color:green;'>Diagnosis added successfully. No redirection needed.</p>";
+                    echo "<p class='error-message'style='color:green;'>Diagnosis added successfully. No redirection needed.</p>";
                 }
             } else {
-                echo "<p style='color:red;'>Error inserting diagnosis: " . mysqli_error($conn) . "</p>";
+                echo "<p class='error-message'>Error inserting diagnosis: " . mysqli_error($conn) . "</p>";
             }
         } else {
-            echo "<p style='color:red;'>Patient not found or no recent OPD appointment available.</p>";
+            echo "<p class='error-message'>Patient not found or no recent OPD appointment available.</p>";
         }
     }
 
@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Add new OPD diagnosis report</h2>
@@ -138,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Submit"><br><br>
     </form>
-
+    <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>
