@@ -1,9 +1,0 @@
-This file is for storing important points. Temporary, will delete later
-
-1) Apply user authentication
-2) Manage according to users
-3) Add prescription/medication report upload(word, pdf, docx)
-4) fix the new_appointment file such that when an appointment has been booked, the slots of the doctor in the doctor table are updated
-5) fix the new_admission file such that when a new admission is made, the bed_status in the beds table is updated
-6) finish by styling the whole thing
-7) Finish queries for the billing_ipd, billing, opd and discharge tables

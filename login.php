@@ -1,34 +1,14 @@
 <?php
+session_start();
 include("database.php");
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sinbadh Hospitals</title>
-</head>
-<body>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <h1>Login</h1>
-        Enter your Username:<br>
-        <input type="text" name="username" required><br>
-        Enter your Password:<br>
-        <input type="password" name="password" required><br>
-        <input type="submit" name="submit" value="Login"><br>
-    </form> 
-</body>
-</html>
+$err = "";
 
-<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
-    $err = "";
 
     $username = mysqli_real_escape_string($conn, $username);
-
     $sql = "SELECT * FROM user WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
 
@@ -37,31 +17,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $row['password'])) {
             $user_type = $row['user_type'];
+            $_SESSION["username"] = $username;
+            $_SESSION["user_type"] = $user_type;
 
             switch ($user_type) {
-                case 'Admin':
-                    header("Location: home_admin.php");
-                    break;
-                case 'Doctor':
-                    header("Location: home_doctor.php");
-                    break;
-                case 'Nurse':
-                    header("Location: home_nurse.php");
-                    break;
-                case 'Reception':
-                    header("Location: home_reception.php");
-                    break;
-                case 'Lab':
-                    header("Location: home_lab.php");
-                    break;
-                case 'Accountant':
-                    header("Location: home_accountant.php");
-                    break;
-                default:
-                    echo "<p style='color:red;'>Unknown user type.</p>";
+                case 'admin':
+                    header("Location: admin/home_admin.php");
                     exit();
+                case 'doctor':
+                    header("Location: home_doctor.php");
+                    exit();
+                case 'nurse':
+                    header("Location: home_nurse.php");
+                    exit();
+                case 'reception':
+                    header("Location: home_reception.php");
+                    exit();
+                case 'lab':
+                    header("Location: home_lab.php");
+                    exit();
+                case 'accountant':
+                    header("Location: home_billing.php");
+                    exit();
+                default:
+                    $err = "Unknown user type: $user_type";
             }
-            exit();
         } else {
             $err = "Invalid username or password.";
         }
@@ -69,10 +49,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err = "Invalid username or password.";
     }
 
-    if (!empty($err)) {
-        echo "<p style='color:red;'>$err</p>";
-    }
-
     mysqli_close($conn);
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Sinbadh Hospitals</title>
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <h1>Login</h1>
+        Username:<br>
+        <input type="text" name="username" placeholder="Username" required><br>
+        Password:<br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <input type="submit" name="submit" value="Login"><br>
+    </form>
+    <?php
+    if (!empty($err)) {
+        echo "<p style='color:red;'>$err</p>";
+    }
+    ?>
+    <h2>Not registered yet?</h2>
+    <a href="register.php">Register</a>
+</body>
+</html>

@@ -1,0 +1,6 @@
+This file is for storing important points. Temporary, will delete later
+
+1) Apply user authentication
+2) Manage according to users
+3) Add prescription/medication report upload(word, pdf, docx)
+4) finish by styling the whole thing
