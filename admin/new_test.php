@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             opacity: 0.9;
         }
     </style>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 
@@ -146,7 +147,6 @@ function selectPatient(patient) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <br>

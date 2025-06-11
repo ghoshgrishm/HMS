@@ -1,5 +1,9 @@
 <?php
 session_start();
+$_SESSION['admin_logged_in'] = true;
+$_SESSION['user_id'] = $user_id;
+
+
 include("database.php");
 
 $err = "";
@@ -36,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'lab':
                     header("Location: home_lab.php");
                     exit();
-                case 'accountant':
+                case 'billing':
                     header("Location: home_billing.php");
                     exit();
                 default:

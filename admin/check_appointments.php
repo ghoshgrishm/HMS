@@ -44,7 +44,7 @@ if ($redirectToBooking) {
     <style>
         
     </style>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <h1>Appointment Check</h1>
