@@ -25,48 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Search</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .patient-record {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .search-btn, .add-patient-btn {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .add-patient-btn {
-            background-color: #2196F3;
-            margin-top: 10px;
-        }
-        .search-btn:hover, .add-patient-btn:hover {
-            opacity: 0.9;
-        }
-        .go-home-btn {
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .go-home-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Patient Search</h1>
@@ -106,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Add New Patient Button -->
     <br>
-    <a href="new_patient.php" class="add-patient-btn">Add New Patient:</a>
+    <a href="new_patient.php" class="new-patient-btn">Add New Patient:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

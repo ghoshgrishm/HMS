@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Search Results</h2>
         <?php if (!empty($searchResults)): ?>
             <?php foreach ($searchResults as $bed): ?>
-                <div class="bed-status">
+                <div class="bed-record">
                     <strong>Bed ID:</strong> <?= htmlspecialchars($bed['bed_id']) ?><br>
                     <strong>Bed Number:</strong> <?= htmlspecialchars($bed['bed_number']) ?><br>
                     <strong>Department:</strong> <?= htmlspecialchars($bed['dept_name']) ?><br>

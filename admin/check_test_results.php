@@ -32,49 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Patient Test Records</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .record-box {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 5px;
-        }
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .search-btn {
-            background-color: #4CAF50;
-        }
-        .action-btn {
-            background-color: #2196F3;
-            margin-right: 10px;
-        }
-        .btn:hover {
-            opacity: 0.9;
-        }
-        .go-home-btn {
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .go-home-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -90,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Search Results</h2>
         <?php if (!empty($searchResults)): ?>
             <?php foreach ($searchResults as $test): ?>
-                <div class="record-box">
+                <div class="test-record">
                     <strong>Patient Name:</strong> <?= htmlspecialchars($test['patient_name']) ?><br>
                     <strong>Test ID:</strong> <?= htmlspecialchars($test['test_id']) ?><br>
                     <strong>Test Name:</strong> <?= htmlspecialchars($test['test_name']) ?><br>
@@ -103,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_test.php" class="btn action-btn">Add New Test</a>
+    <a href="new_test.php" class="new-test-btn">Add New Test</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 

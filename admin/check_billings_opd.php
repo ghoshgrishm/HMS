@@ -29,49 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check billings</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .billing-record {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .search-btn, .add-billing-btn {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .add-billing-btn {
-            background-color: #2196F3;
-            margin-top: 10px;
-        }
-        .search-btn:hover, .add-billing-btn:hover {
-            opacity: 0.9;
-        }
-        .go-home-btn {
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .go-home-btn:hover {
-            opacity: 0.9;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Check billings</h1>
@@ -102,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_billing_opd.php" class="add-billing-btn">Add new Billing for OPD:</a>
+    <a href="new_billing_opd.php" class="new-billing-btn">Add new Billing for OPD:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

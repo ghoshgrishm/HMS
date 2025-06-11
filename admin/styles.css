@@ -1,0 +1,581 @@
+/* Hospital Common Styles - Blue & White Professional Theme */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #003366;
+    margin: 20px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Page Title */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #003366;
+    text-shadow: 0 2px 4px rgba(0, 51, 102, 0.1);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #003366, #0066cc);
+    border-radius: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #003366;
+    border-left: 4px solid #003366;
+    padding-left: 1rem;
+}
+
+/* Form Styling */
+form {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.1);
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #003366, #0066cc, #003366);
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #003366;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"], 
+input[type="number"],
+select, 
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #003366;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    color: #6c757d;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #003366;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+    transform: translateY(-1px);
+}
+
+select option {
+    background: #ffffff;
+    color: #003366;
+}
+
+/* Button Styles */
+.search-btn, 
+.new-admission-btn,
+.new-appointment-btn,
+.new-prescription-btn,
+.new-procedure-btn,
+.new-test-btn,
+.new-medication-btn,
+.new-diagnosis-btn,
+.new-billing-btn,
+.new-discharge-btn,
+.new-patient-btn,
+.new-doctor-btn,
+.go-home-btn,
+button[type="submit"],
+input[type="submit"] {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.search-btn::before, 
+.new-admission-btn::before,
+.new-appointment-btn::before,
+.new-prescription-btn::before,
+.new-procedure-btn::before,
+.new-test-btn::before,
+.new-medication-btn::before,
+.new-diagnosis-btn::before,
+.new-billing-btn::before,
+.new-discharge-btn::before,
+.new-patient-btn::before,
+.new-doctor-btn::before,
+.go-home-btn::before,
+button[type="submit"]::before,
+input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.search-btn:hover::before, 
+.new-admission-btn:hover::before,
+.new-appointment-btn:hover::before,
+.new-prescription-btn:hover::before,
+.new-procedure-btn:hover::before,
+.new-test-btn:hover::before,
+.new-medication-btn:hover::before,
+.new-diagnosis-btn:hover::before,
+.new-billing-btn:hover::before,
+.new-discharge-btn:hover::before,
+.new-patient-btn:hover::before,
+.new-doctor-btn:hover::before, 
+.go-home-btn:hover::before,
+button[type="submit"]:hover::before,
+input[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.search-btn, 
+button[type="submit"],
+input[type="submit"] {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.search-btn:hover, 
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #218838, #1ea584);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.new-admission-btn,
+.new-appointment-btn,
+.new-prescription-btn,
+.new-procedure-btn,
+.new-test-btn,
+.new-medication-btn,
+.new-diagnosis-btn,
+.new-diagnosis-btn,
+.new-billing-btn,
+.new-billing-btn,
+.new-discharge-btn,
+.new-patient-btn,
+.new-doctor-btn {
+    background: linear-gradient(135deg, #003366, #0066cc);
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+}
+
+.new-prescription-btn:hover,
+.new-procedure-btn:hover,
+.new-test-btn:hover,
+.new-medication-btn:hover,
+.new-diagnosis-btn:hover,
+.new-diagnosis-btn:hover,
+.new-billing-btn:hover,
+.new-billing-btn:hover,
+.new-discharge-btn:hover,
+.new-patient-btn:hover
+.new-doctor-btn:hover {
+    background: linear-gradient(135deg, #002244, #0052a3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
+}
+
+.new-prescription-btn::before,
+.new-procedure-btn::before,
+.new-test-btn::before,
+.new-medication-btn::before,
+.new-diagnosis-btn::before,
+.new-diagnosis-btn::before,
+.new-billing-btn::before,
+.new-billing-btn::before,
+.new-discharge-btn::before,
+.new-patient-btn::before,
+.new-doctor-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.new-prescription-btn:hover::before,
+.new-procedure-btn:hover::before,
+.new-test-btn:hover::before,
+.new-medication-btn:hover::before,
+.new-diagnosis-btn:hover::before,
+.new-diagnosis-btn:hover::before,
+.new-billing-btn:hover::before,
+.new-billing-btn:hover::before,
+.new-discharge-btn:hover::before,
+.new-patient-btn:hover::before,
+.new-doctor-btn:hover::before {
+    left: 100%;
+}
+
+
+.go-home-btn {
+    background: linear-gradient(135deg, #6f42c1, #8a63d2);
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+}
+
+.go-home-btn:hover {
+    background: linear-gradient(135deg, #5a32a3, #7952b3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(111, 66, 193, 0.4);
+}
+
+/* Record/Card Styling */
+.admission-record,
+.patient-record,
+.appointment-record,
+.doctor-record,
+.department-record,
+.bed-record,
+.test-record,
+.billing-record,
+.diagnosis-record,
+.discharge-record,
+.medication-record,
+.prescription-record,
+.procedure-record {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.admission-record::before,
+.patient-record::before,
+.doctor-record::before,
+.appointment-record::before,
+.department-record::before,
+.bed-record::before,
+.test-record::before,
+.billing-record::before,
+.diagnosis-record::before,
+.discharge-record::before,
+.medication-record::before,
+.prescription-record::before,
+.procedure-record::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #003366, #0066cc);
+}
+
+.admission-record:hover,
+.patient-record:hover,
+.doctor-record:hover,
+.appointment-record:hover,
+.department-record:hover,
+.bed-record:hover,
+.test-record:hover,
+.billing-record:hover,
+.diagnosis-record:hover,
+.discharge-record:hover,
+.medication-record:hover,
+.prescription-record:hover,
+.procedure-record:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 51, 102, 0.15);
+}
+
+.admission-record strong,
+.patient-record strong,
+.doctor-record strong,
+.appointment-record strong,
+.department-record strong,
+.bed-record strong,
+.test-record strong,
+.billing-record strong,
+.diagnosis-record strong,
+.discharge-record strong,
+.medication-record strong,
+.prescription-record strong,
+.procedure-record strong {
+    color: #003366;
+    font-weight: 700;
+    display: inline-block;
+    min-width: 180px;
+    margin-right: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.08);
+    border: 1px solid #e9ecef;
+    margin-bottom: 2rem;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th, td {
+    padding: 1.2rem;
+    text-align: left;
+}
+
+th {
+    background: linear-gradient(135deg, #003366, #0066cc);
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+td {
+    color: #003366;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+tr:nth-child(even) td {
+    background: #f8f9fa;
+}
+
+tr:hover td {
+    background: #e3f2fd;
+}
+
+/* Alert/Message Styling */
+.success-message,
+.error-message,
+.info-message {
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    border-left: 4px solid;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+    background: #d4edda;
+    border-left-color: #28a745;
+    color: #155724;
+}
+
+.error-message {
+    background: #f8d7da;
+    border-left-color: #dc3545;
+    color: #721c24;
+}
+
+.info-message {
+    background: #cce7ff;
+    border-left-color: #003366;
+    color: #003366;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: linear-gradient(135deg, #003366, #0066cc);
+    padding: 1rem 0;
+    margin: -20px -20px 2rem -20px;
+    box-shadow: 0 4px 20px rgba(0, 51, 102, 0.2);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Simple spacing utilities */
+.text-center { text-align: center; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+/* Loading Spinner */
+.loading {
+    border: 3px solid #f8f9fa;
+    border-radius: 50%;
+    border-top: 3px solid #003366;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 1rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    form {
+        padding: 1.8rem;
+    }
+    
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    input[type="date"], 
+    input[type="number"],
+    select, 
+    textarea {
+        max-width: 100%;
+    }
+    
+    .admission-record,
+    .patient-record,
+    .doctor-record,
+    .appointment-record,
+    .department-record,
+    .bed-record,
+    .test-record,
+    .billing-record,
+    .diagnosis-record,
+    .discharge-record,
+    .medication-record,
+    .prescription-record,
+    .procedure-record {
+        padding: 1.5rem;
+    }
+    
+    .admission-record strong,
+    .patient-record strong,
+    .doctor-record strong,
+    .appointment-record strong,
+    .department-record strong,
+    .bed-record strong,
+    .test-record strong,
+    .billing-record strong,
+    .diagnosis-record strong,
+    .discharge-record strong,
+    .medication-record strong,
+    .prescription-record strong,
+    .procedure-record strong {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.5rem;
+    }
+    
+    .search-btn,
+    .new-appointment-btn, 
+    .new-admission-btn,
+    .new-prescription-btn,
+    .new-procedure-btn,
+    .new-test-btn,
+    .new-medication-btn,
+    .new-diagnosis-btn,
+    .new-billing-btn,
+    .new-discharge-btn,
+    .new-patient-btn,
+    .new-doctor-btn,
+    .go-home-btn,
+    button[type="submit"],
+    input[type="submit"] {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.8rem 0.6rem;
+    }
+}

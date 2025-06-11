@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN doctor c ON a.doctor_id = c.doctor_id
                 JOIN department d ON a.department_id = d.department_id
-                WHERE LOWER(p.name) LIKE LOWER('%$name%')";
+                WHERE LOWER(p.patient_name) LIKE LOWER('%$name%')";
                 
         $result = mysqli_query($conn, $sql);
 
@@ -42,47 +42,9 @@ if ($redirectToBooking) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Check</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .patient-record {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .search-btn, .add-patient-btn {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .add-patient-btn {
-            background-color: #2196F3;
-            margin-top: 10px;
-        }
-        .search-btn:hover, .add-patient-btn:hover {
-            opacity: 0.9;
-        }
-        .go-home-btn {
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .go-home-btn:hover {
-            opacity: 0.9;
-        }
+        
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Appointment Check</h1>
@@ -97,11 +59,11 @@ if ($redirectToBooking) {
     <h2>Search Results</h2>
     <?php if (!empty($searchResults)): ?>
         <?php foreach ($searchResults as $appointment): ?>
-            <div class="patient-record">
+            <div class="appointment-record">
                 <strong>Appointment ID:</strong> <?= htmlspecialchars($appointment['appointment_id']) ?><br>
                 <strong>Patient Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?><br>
                 <strong>Doctor Name:</strong> <?= htmlspecialchars($appointment['doctor_name']) ?><br>
-                <strong>Department Name:</strong> <?= htmlspecialchars($appointment['department_name']) ?><br>
+                <strong>Department Name:</strong> <?= htmlspecialchars($appointment['dept_name']) ?><br>
                 <strong>Date:</strong> <?= htmlspecialchars($appointment['appointment_date']) ?><br>
                 <strong>Token Number:</strong> <?= htmlspecialchars($appointment['token_number']) ?><br>
             </div>
@@ -113,7 +75,7 @@ if ($redirectToBooking) {
 
 
     <br>
-    <a href="new_appointment.php" class="add-patient-btn">Book New Appointment:</a>
+    <a href="new_appointment.php" class="new-appointment-btn">Book New Appointment:</a>
 
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>

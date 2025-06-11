@@ -29,48 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check diagnoses for OPD</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .diagnoses-record {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .search-btn, .add-diagnosis-btn {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .add-diagnosis-btn {
-            background-color: #2196F3;
-            margin-top: 10px;
-        }
-        .search-btn:hover, .add-diagnosis-btn:hover {
-            opacity: 0.9;
-        }
-        .go-home-btn {
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .go-home-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Check diagnoses for OPD</h1>
@@ -85,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Search Results</h2>
         <?php if (!empty($searchResults)): ?>
             <?php foreach ($searchResults as $diagnosis): ?>
-                <div class="diagnoses-record">
+                <div class="diagnosis-record">
                     <strong>Patient's name:</strong> <?= htmlspecialchars($diagnosis['patient_name']) ?><br>
                     <strong>Diagnosis ID:</strong> <?= htmlspecialchars($diagnosis['diagnosis_id']) ?><br>
                     <strong>Test ID:</strong> <?= htmlspecialchars($diagnosis['test_id']) ?><br>
@@ -104,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_diagnosis_opd.php" class="add-diagnosis-btn">Add new diagnosis results:</a>
+    <a href="new_diagnosis_opd.php" class="new-diagnosis-btn">Add new diagnosis results:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
