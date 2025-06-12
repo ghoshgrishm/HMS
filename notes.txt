@@ -3,5 +3,4 @@ This file is for storing important points. Temporary, will delete later
 1) Manage according to users
 2) Add prescription/medication report upload(word, pdf, docx)
 3) finish by styling the whole thing
-4) the new_billing_ipd and opd files don't search for patient
-5) manage profile.php
+4) manage profile.php

@@ -82,39 +82,96 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+        .card:hover {
+            background-color: #e6f7ff;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Add new Bill for IPD patient</h1>
+
+    <?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
+    <?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>
+
     <form method="post">
-        <input type="hidden" name="patient_id" id="patient_id">
-        <p><strong>Selected Patient ID:</strong> <span id="pid_display"></span></p>
-
-        Discount (₹):<br>
-        <input type="number" name="discount" min="0" step="0.01" value="0" required><br><br>
-
-        Payment Received?<br>
-        <select name="payment_received" required>
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        Payment Mode:<br>
-        <select name="payment_mode" required>
-            <option value="">Select</option>
-            <option value="cash">Cash</option>
-            <option value="credit card">Credit Card</option>
-            <option value="debit card">Debit Card</option>
-            <option value="upi">UPI</option>
-            <option value="net banking">Net Banking</option>
-            <option value="insurance">Insurance</option>
-            <option value="emi">EMI</option>
-            <option value="government scheme">Government Scheme</option>
-            <option value="cheque">Cheque</option>
-        </select><br><br>
-
-        <button type="submit" name="submit_billing" class="btn">Submit Billing</button>
+        Search Patient Name:<br>
+        <input type="text" name="patient_name" required>
+        <button type="submit" name="search">Search</button>
     </form>
+
+    <?php if (!empty($patients)): ?>
+        <h3>Click a patient to continue:</h3>
+        <?php foreach ($patients as $p): ?>
+            <div class="card" onclick="selectPatient(<?= htmlspecialchars(json_encode($p)) ?>)">
+                <strong>ID:</strong> <?= $p['patient_id'] ?> |
+                <strong>Name:</strong> <?= $p['patient_name'] ?> |
+                <strong>Age:</strong> <?= $p['age'] ?> |
+                <strong>DOB:</strong> <?= $p['dob'] ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div id="billing-form" class="hidden">
+        <form method="post">
+            <input type="hidden" name="patient_id" id="patient_id">
+            <p><strong>Selected Patient ID:</strong> <span id="pid_display"></span></p>
+
+            Discount (₹):<br>
+            <input type="number" name="discount" min="0" step="0.01" value="0" required><br><br>
+
+            Payment Received?<br>
+            <select name="payment_received" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            Payment Mode:<br>
+            <select name="payment_mode" required>
+                <option value="">Select</option>
+                <option value="cash">Cash</option>
+                <option value="credit card">Credit Card</option>
+                <option value="debit card">Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="net banking">Net Banking</option>
+                <option value="insurance">Insurance</option>
+                <option value="emi">EMI</option>
+                <option value="government scheme">Government Scheme</option>
+                <option value="cheque">Cheque</option>
+            </select><br><br>
+
+            <button type="submit" name="submit_billing" class="btn">Submit Billing</button>
+        </form>
+    </div>
+    <script>
+        function selectPatient(patient) {
+            document.getElementById('billing-form').classList.remove('hidden');
+            document.getElementById('patient_id').value = patient.patient_id;
+            document.getElementById('pid_display').innerText = patient.patient_id;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
