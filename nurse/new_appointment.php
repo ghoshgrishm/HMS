@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             VALUES ($selected_patient, $selected_doctor, $department_id, '$today', '$selected_slot', $token)");
 
         // Update doctor's slot to 'unavailable'
-        mysqli_query($conn, "UPDATE doctor SET `$selected_slot` = 'unavailable' WHERE doctor_id = $selected_doctor");
+        mysqli_query($conn, "UPDATE doctor SET `$selected_slot` = 'booked' WHERE doctor_id = $selected_doctor");
 
         echo "<h3>✅ Appointment Booked Successfully!</h3>";
         exit;
@@ -147,6 +147,6 @@ endif;
 </head>
 <body>
     <br>
-    <a href="home_nurse.php" class="go-home-btn">Go home</a>
+    <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>
