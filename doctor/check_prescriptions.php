@@ -69,6 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <a href="new_prescription.php" class="new-prescription-btn">Add new prescription:</a>
     <br>
-    <a href="home_admin.php" class="go-home-btn">Go home</a>
+    <a href="home_doctor.php" class="go-home-btn">Go home</a>
 </body>
 </html>

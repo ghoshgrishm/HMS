@@ -170,6 +170,6 @@ function selectPatient(patient) {
 </script>
 
 <br>
-<a href="home_admin.php" class="go-home-btn">Go home</a>
+<a href="home_doctor.php" class="go-home-btn">Go home</a>
 </body>
 </html>
