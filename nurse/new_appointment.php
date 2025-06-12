@@ -147,6 +147,6 @@ endif;
 </head>
 <body>
     <br>
-    <a href="home_admin.php" class="go-home-btn">Go home</a>
+    <a href="home_nurse.php" class="go-home-btn">Go home</a>
 </body>
 </html>

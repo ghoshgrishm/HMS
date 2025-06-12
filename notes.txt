@@ -2,4 +2,3 @@ This file is for storing important points. Temporary, will delete later
 
 1) look if you can style any more elements
 2) manage profile.php for all the users
-2) find a way to book appointments for three days in advance or reset appointments for every day
