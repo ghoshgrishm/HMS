@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-<h2>Record Patient Test</h2>
+<h1>Record Tests for patients</h1>
 
 <?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
 <?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>

@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h1>New Admission</h1>
+    <h1>Make a new Admission</h1>
     <?php if ($msg) echo "<p class='success-message'>$msg</p>"; ?>
     <?php if ($err) echo "<p class='error-message'>$err</p>"; ?>
 

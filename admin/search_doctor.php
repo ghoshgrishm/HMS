@@ -39,11 +39,12 @@ include("../database.php");
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <h1>Search doctor by:</h1>
+        <h1>Search for Doctors</h1>
+        <h2>Search doctor by:</h2>
 
-    <button type="submit" name="search_type" value="name" class="btn">Search by Name</button><br>
-    <button type="submit" name="search_type" value="department" class="btn">Search by Department</button><br>
-</form>
+        <button type="submit" name="search_type" value="name" class="btn">Search by Name</button><br>
+        <button type="submit" name="search_type" value="department" class="btn">Search by Department</button><br>
+    </form>
 </body>
 </html>
 

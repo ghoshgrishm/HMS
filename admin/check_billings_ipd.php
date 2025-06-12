@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Billings for IPD</title>
+    <title>Check Bills of IPD patients</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h1>Check billings</h1>
+    <h1>Check billings for IPD patients</h1>
     
     <form method="post">
         <label for="patient_name">Enter Patient's Name:</label><br>

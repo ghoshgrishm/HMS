@@ -10,6 +10,7 @@ include("../database.php");
     <title>Patients</title>
 </head>
 <body>
+    <h1>Make entries for a new patient</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         Patient's name:<br>
         <input type="text" name="name"><br>

@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 $patients = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                return;
             } else {
                 $err = "No patients found with that name.";
             }
@@ -97,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-<h2>Record Procedure for Patient</h2>
+<h1>Record Procedure for IPD Patient</h1>
 
 <?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
 <?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['patient_name'])) {
         $name = mysqli_real_escape_string($conn, $_POST['patient_name']);
         
-        $sql = "SELECT a.admission_id, p.patient_name AS patient_name, d.dept_name AS department_name, b.bed_number, a.patient_condition, a.admission_date, a.predict_discharge
+        $sql = "SELECT a.admission_id, p.patient_name AS patient_name, d.dept_name AS department_name, b.bed_number, a.patient_condition, a.admission_date, a.predict_discharge, a.discharged
                 FROM admission a
                 JOIN patient p ON a.patient_id = p.patient_id
                 JOIN department d ON a.department_id = d.department_id
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h1>Admission Check</h1>
+    <h1>Check admission history</h1>
     
     <form method="post">
         <label for="patient_name">Enter Patient Name:</label><br>
@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong>Bed Number:</strong> <?= htmlspecialchars($admission['bed_number']) ?><br>
                     <strong>Admission Date:</strong> <?= htmlspecialchars($admission['admission_date']) ?><br>
                     <strong>Predicted Date of Discharge:</strong> <?= htmlspecialchars($admission['predict_discharge']) ?><br>
+                    <strong>Patient discharged?:</strong> <?= htmlspecialchars($admission['discharged']) ?><br>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

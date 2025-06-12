@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (mysqli_query($conn, $insert)) {
                 // Now delete the admission record
-                $delete = "DELETE FROM admission WHERE admission_id = '$admission_id'";
+                $delete = "UPDATE admission SET discharged = 'yes' WHERE admission_id = '$admission_id'";
                 if (mysqli_query($conn, $delete)) {
-                    $msg = "Patient discharged and admission record removed successfully.";
+                    $msg = "Patient discharged and admission record updated successfully.";
                 } else {
                     $err = "Discharged, but failed to remove admission record.";
                 }
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-<h2>Record Discharge for Patient</h2>
+<h1>Record Discharge for Admitted IPD Patient</h1>
 
 <?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
 <?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>

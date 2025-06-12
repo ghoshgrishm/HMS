@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h2>Book an Appointment</h2>
+<h1>Book an Appointment</h1>
 
 <!-- STEP 1: SEARCH PATIENT -->
 <?php if ($step == 1): ?>

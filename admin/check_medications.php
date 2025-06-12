@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h1>Check Medications</h1>
+    <h1>Find Medications provided to IPD patients</h1>
     
     <form method="post">
         <label for="patient_name">Enter Patient's Name:</label><br>

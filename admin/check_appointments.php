@@ -3,7 +3,7 @@ include("../database.php");
 
 $searchResults = [];
 $searchPerformed = false;
-$redirectToBooking = false;
+$showNewAppointmentOption = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['patient_name'])) {
@@ -23,16 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $searchResults[] = $row;
             }
         } else {
-            $redirectToBooking = true;
+            $showNewAppointmentOption = true;
         }
         $searchPerformed = true;
     }
 }
 
-if ($redirectToBooking) {
-    header("Location: new_appointment.php?patient=".urlencode($_POST['patient_name']));
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +43,7 @@ if ($redirectToBooking) {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h1>Appointment Check</h1>
+    <h1>Check booked appointments</h1>
     
     <form method="post">
         <label for="patient_name">Enter Patient Name:</label><br>
@@ -55,7 +51,7 @@ if ($redirectToBooking) {
         <button type="submit" class="search-btn">Search</button>
     </form>
 
-    <?php if ($searchPerformed && !$redirectToBooking): ?>
+    <?php if ($searchPerformed): ?>
     <h2>Search Results</h2>
     <?php if (!empty($searchResults)): ?>
         <?php foreach ($searchResults as $appointment): ?>

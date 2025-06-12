@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <h2>Add new OPD diagnosis report</h2>
+    <h2>Add Diagnosis report for OPD patient</h2>
 
     <?php
     if (!empty($err)) {

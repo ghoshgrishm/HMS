@@ -71,36 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<form method="post">
-    <input type="hidden" name="patient_id" id="patient_id">
-    <p><strong>Selected Patient ID:</strong> <span id="pid_display"></span></p>
 
-    Discount (₹):<br>
-    <input type="number" name="discount" min="0" step="0.01" value="0" required><br><br>
-
-    Payment Received?<br>
-    <select name="payment_received" required>
-        <option value="">Select</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-    </select><br><br>
-
-    Payment Mode:<br>
-    <select name="payment_mode" required>
-        <option value="">Select</option>
-        <option value="cash">Cash</option>
-        <option value="credit card">Credit Card</option>
-        <option value="debit card">Debit Card</option>
-        <option value="upi">UPI</option>
-        <option value="net banking">Net Banking</option>
-        <option value="insurance">Insurance</option>
-        <option value="emi">EMI</option>
-        <option value="government scheme">Government Scheme</option>
-        <option value="cheque">Cheque</option>
-    </select><br><br>
-
-    <button type="submit" name="submit_billing" class="btn">Submit Billing</button>
-</form>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +81,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <h1>Add new bill for OPD patient</h1>
+    <form method="post">
+        <input type="hidden" name="patient_id" id="patient_id">
+        <p><strong>Selected Patient ID:</strong> <span id="pid_display"></span></p>
+
+        Discount (₹):<br>
+        <input type="number" name="discount" min="0" step="0.01" value="0" required><br><br>
+
+        Payment Received?<br>
+        <select name="payment_received" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        Payment Mode:<br>
+        <select name="payment_mode" required>
+            <option value="">Select</option>
+            <option value="cash">Cash</option>
+            <option value="credit card">Credit Card</option>
+            <option value="debit card">Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="net banking">Net Banking</option>
+            <option value="insurance">Insurance</option>
+            <option value="emi">EMI</option>
+            <option value="government scheme">Government Scheme</option>
+            <option value="cheque">Cheque</option>
+        </select><br><br>
+
+        <button type="submit" name="submit_billing" class="btn">Submit Billing</button>
+    </form>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
