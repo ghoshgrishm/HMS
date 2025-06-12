@@ -306,7 +306,8 @@ input[type="submit"]:hover {
 .discharge-record,
 .medication-record,
 .prescription-record,
-.procedure-record {
+.procedure-record,
+.user-record {
     background: #ffffff;
     border-radius: 12px;
     padding: 2rem;
@@ -330,7 +331,8 @@ input[type="submit"]:hover {
 .discharge-record::before,
 .medication-record::before,
 .prescription-record::before,
-.procedure-record::before {
+.procedure-record::before,
+.user-record::before {
     content: '';
     position: absolute;
     top: 0;
@@ -352,7 +354,8 @@ input[type="submit"]:hover {
 .discharge-record:hover,
 .medication-record:hover,
 .prescription-record:hover,
-.procedure-record:hover {
+.procedure-record:hover,
+.user-record:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 35px rgba(0, 51, 102, 0.15);
 }
@@ -369,7 +372,8 @@ input[type="submit"]:hover {
 .discharge-record strong,
 .medication-record strong,
 .prescription-record strong,
-.procedure-record strong {
+.procedure-record strong,
+.user-record strong {
     color: #003366;
     font-weight: 700;
     display: inline-block;
@@ -532,7 +536,8 @@ tr:hover td {
     .discharge-record,
     .medication-record,
     .prescription-record,
-    .procedure-record {
+    .procedure-record,
+    .user-record {
         padding: 1.5rem;
     }
     
@@ -548,7 +553,8 @@ tr:hover td {
     .discharge-record strong,
     .medication-record strong,
     .prescription-record strong,
-    .procedure-record strong {
+    .procedure-record strong,
+    .user-record strong {
         display: block;
         min-width: auto;
         margin-bottom: 0.5rem;

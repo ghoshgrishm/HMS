@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user_type = $row['user_type'];
             $_SESSION["username"] = $username;
             $_SESSION["user_type"] = $user_type;
+            $_SESSION["user_id"] = $row['user_id'];
 
             switch ($user_type) {
                 case 'admin':
