@@ -25,7 +25,7 @@ include("database.php");
             <option value="nurse">Nurse</option>
             <option value="reception">Reception</option>
             <option value="lab">Lab</option>
-            <option value="accountant">Accountant</option>
+            <option value="billing">Billing</option>
         </select><br>
         Enter your email address:<br>
         <input type="email" name="email_id" required><br>

@@ -28,19 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: admin/home_admin.php");
                     exit();
                 case 'doctor':
-                    header("Location: home_doctor.php");
+                    header("Location: doctor/home_doctor.php");
                     exit();
                 case 'nurse':
-                    header("Location: home_nurse.php");
+                    header("Location: nurse/home_nurse.php");
                     exit();
                 case 'reception':
-                    header("Location: home_reception.php");
+                    header("Location: reception/home_reception.php");
                     exit();
                 case 'lab':
-                    header("Location: home_lab.php");
+                    header("Location: lab/home_lab.php");
                     exit();
                 case 'billing':
-                    header("Location: home_billing.php");
+                    header("Location: billing/home_billing.php");
                     exit();
                 default:
                     $err = "Unknown user type: $user_type";

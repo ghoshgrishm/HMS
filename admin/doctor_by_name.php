@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="error-message">No doctors found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
-
+    <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>

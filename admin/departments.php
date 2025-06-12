@@ -103,7 +103,7 @@ $result = mysqli_query($conn, $sql);
         }
         ?>
     </div>
-
+    <br>
     <a href="home_admin.php" class="go-home-btn">Go Home</a>
 
 </body>
