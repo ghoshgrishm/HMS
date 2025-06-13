@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?= $reset_msg ?>
     <form method="post" onsubmit="return confirm('Reset all doctor slots for today?');">
-        <button type="submit" name="reset_slots" class="btn">🔄 Reset Doctor Slots</button>
+        <button type="submit" name="reset_slots" class="btn">Reset Doctor Slots</button>
     </form>
 
     <br>

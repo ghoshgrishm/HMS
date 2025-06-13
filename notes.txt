@@ -1,3 +1,8 @@
 This file is for storing important points. Temporary, will delete later
 
 1) Find how you can deploy the app
+2) SQL attack prevention
+3) Using sessions for each page
+4) Adding CSRF protection
+5) Try adding password view option (eye emoji) and password strength requirements
+6) Check if the contact number really exists or not

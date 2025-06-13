@@ -90,12 +90,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: login.php");
                 exit();
             } else {
-                echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
+                echo "<p class='error-message'style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
             }
         }
     }
     else {
-        echo "<p style='color:red;'>$err</p>";
+        echo "<p class='error-message'style='color:red;'>$err</p>";
     }
 }
 ?>
