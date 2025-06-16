@@ -33,9 +33,49 @@ include("database.php");
         <input type="number" name="contact_number" required><br>
         Make a Username:<br>
         <input type="text" name="username" required><br>
-        Make a Password:<br>
-        <input type="password" name="password" required><br>
+        Password:<br>
+        <input type="password" name="password" id="password" required oninput="checkStrength()" style="width: 200px;">
+        <button type="button" onclick="togglePassword()" style="margin-left: 8px; cursor: pointer; background: none; border: none; color: grey; font-size: 18px;">
+            👁️
+        </button>
+        <div id="strength" style="margin-top: 5px; font-size: 14px;"></div>
+        <br>
         <input type="submit" name="submit" value="Register"><br>
+        <script>
+            function togglePassword() {
+                const field = document.getElementById("password");
+                field.type = field.type === "password" ? "text" : "password";
+            }
+
+            function checkStrength() {
+                const strengthDiv = document.getElementById("strength");
+                const password = document.getElementById("password").value;
+
+                let strength = 0;
+                if (password.length >= 8) strength++;
+                if (/[a-z]/.test(password)) strength++;
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+                let message = '';
+                let color = '';
+
+                if (strength <= 2) {
+                message = 'Weak';
+                color = 'red';
+                } else if (strength === 3 || strength === 4) {
+                message = 'Medium';
+                color = 'orange';
+                } else {
+                message = 'Strong';
+                color = 'green';
+                }
+
+                strengthDiv.textContent = 'Strength: ' + message;
+                strengthDiv.style.color = color;
+            }
+        </script>
     </form>
 </body>
 

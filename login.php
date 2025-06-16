@@ -69,7 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Username:<br>
         <input type="text" name="username" placeholder="Username" required><br>
         Password:<br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
+        <div style="position: relative;">
+            <input type="password" name="password" id="password" placeholder="Password" required style="padding-right: 30px;">
+            <span onclick="togglePassword()" style="margin-left: 8px; cursor: pointer">
+                👁️
+            </span><br>
+            <a href="forgot_password.php" class="">Forgot Password?</a>
+        </div>
+        <br><br>
         <input type="submit" name="submit" value="Login"><br>
     </form>
     <?php
@@ -79,5 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <h2>Not registered yet?</h2>
     <a href="register.php" class="go-home-btn">Register</a>
+
+    <script>
+        function togglePassword() {
+        const field = document.getElementById("password");
+        field.type = field.type === "password" ? "text" : "password";
+        }
+    </script>
+
 </body>
 </html>

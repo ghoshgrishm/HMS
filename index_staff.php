@@ -323,8 +323,8 @@
             <div class="logo">Sinbadh Hospitals</div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index_staff.php">Staff?</a></li>
-                    <li><a href="patient/new_appointment.php">Book appointment</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
                 </ul>
                 <button class="mobile-toggle">☰</button>
             </nav>
