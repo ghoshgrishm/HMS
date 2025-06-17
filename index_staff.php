@@ -334,7 +334,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1>🏥 Step into the finest healthcare 🏥</h1>
+            <h1> Step into the finest healthcare </h1>
             <p>How may we help you?</p>
         </div>
     </section>

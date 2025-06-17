@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinbadh Hospitals - Step into the finest healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,40 +13,95 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1e3c72;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Decorative stars */
+        .star {
+            position: absolute;
+            color: #87ceeb;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        .star-1 {
+            top: 20px;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .star-2 {
+            top: 30px;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .star-3 {
+            bottom: 40px;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .star-4 {
+            bottom: 60px;
+            right: 15%;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
         }
 
         /* Header Navigation */
         .header {
-            background-color: #1e3c72;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 15px 0;
-            position: sticky;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="80" cy="40" r="0.3" fill="rgba(255,255,255,0.03)"/><circle cx="40" cy="80" r="0.4" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 300;
             color: white;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 60px;
+            justify-content: center;
         }
 
         .nav-menu li {
@@ -53,248 +109,369 @@
         }
 
         .nav-menu a {
-            color: white;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-weight: 500;
-            padding: 10px 0;
-            transition: color 0.3s ease;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #87ceeb;
+            transition: width 0.3s ease;
         }
 
         .nav-menu a:hover {
-            color: #87ceeb;
-        }
-
-        /* Main Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            text-align: center;
-            padding: 60px 20px 40px;
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        /* SLIDESHOW SECTION */
-        .slideshow-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            padding: 60px 20px;
-        }
-
-        .slideshow-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .slide {
-            display: none;
-            position: relative;
+        .nav-menu a:hover::after {
             width: 100%;
-            height: 500px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            background: #ffffff;
+            position: relative;
+            padding: 80px 20px 60px;
+        }
+
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        /* Left side - Image */
+        .image-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
-        .slide.active {
-            display: block;
-        }
-
-        /* PASTE YOUR IMAGE LINKS HERE - Replace the background-image URLs below */
-        .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            /* SLIDE 1 IMAGE - Replace with your hospital exterior image */
-        }
-
-        .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            /* SLIDE 2 IMAGE - Replace with your medical equipment image */
-        }
-
-        .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            /* SLIDE 3 IMAGE - Replace with your doctors/staff image */
-        }
-
-        .slide:nth-child(4) {
-            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            /* SLIDE 4 IMAGE - Replace with your hospital interior image */
-        }
-
-        .slide:nth-child(5) {
-            background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            /* SLIDE 5 IMAGE - Replace with your patient care image */
-        }
-
-        .slide-overlay {
+        .main-image::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.5));
+            background: linear-gradient(45deg, rgba(30, 60, 114, 0.1), transparent);
+            border-radius: 20px;
+        }
+
+        /* Right side - Content */
+        .content-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 60px 50px;
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(30, 60, 114, 0.08);
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .content-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 300;
+            color: #1e3c72;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .content-title .highlight {
+            font-style: italic;
+            color: #2a5298;
+            position: relative;
+        }
+
+        .content-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(30, 60, 114, 0.4);
+        }
+
+        /* Decorative Badge */
+        .decorative-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-        }
-
-        .slide-content {
             color: white;
-            max-width: 600px;
-            padding: 20px;
-        }
-
-        .slide-content h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-
-        .slide-content p {
-            font-size: 18px;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        /* Navigation Arrows */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-size: 24px;
-            transition: background 0.3s ease;
-            border-radius: 5px;
-            backdrop-filter: blur(10px);
-        }
-
-        .prev {
-            left: 20px;
-        }
-
-        .next {
-            right: 20px;
-        }
-
-        .prev:hover, .next:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Slide Indicators */
-        .slide-indicators {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            margin: 0 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .indicator.active {
-            background: white;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(30, 60, 114, 0.3);
+            border: 4px solid white;
         }
 
         /* Services Section */
         .services-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            padding: 60px 20px;
+            background: #ffffff;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .services-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .services-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .services-title p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .services-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 30px;
-            border-radius: 15px;
+            background: #ffffff;
+            padding: 50px 30px;
+            border-radius: 25px;
             text-align: center;
-            color: white;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #1e3c72;
+            box-shadow: 0 8px 32px rgba(30, 60, 114, 0.08);
+            border: 2px solid #f1f5f9;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 60, 114, 0.03), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.15);
+            border-color: #87ceeb;
         }
 
         .service-icon {
             font-size: 48px;
-            margin-bottom: 20px;
-            color: #87ceeb;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(30, 60, 114, 0.1));
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            opacity: 1;
         }
 
         .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 18px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            color: #1e3c72;
         }
 
         .service-card p {
-            line-height: 1.6;
-            opacity: 0.9;
+            line-height: 1.7;
+            opacity: 0.8;
+            font-size: 16px;
+            font-weight: 400;
+            color: #64748b;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+        @media (max-width: 1024px) {
+            .content-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
             }
 
-            .hero-content h1 {
+            .main-image {
+                max-width: 400px;
+                height: 500px;
+            }
+
+            .content-section {
+                padding: 50px 40px;
+            }
+
+            .content-title {
+                font-size: 46px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                padding: 60px 20px 40px;
+            }
+
+            .main-image {
+                max-width: 100%;
+                height: 400px;
+            }
+
+            .content-section {
+                padding: 40px 30px;
+                margin-top: 40px;
+            }
+
+            .content-title {
                 font-size: 36px;
             }
 
-            .slide {
-                height: 350px;
-            }
-
-            .slide-content h2 {
-                font-size: 28px;
-            }
-
-            .slide-content p {
+            .content-subtitle {
                 font-size: 16px;
             }
 
-            .prev, .next {
-                padding: 10px 15px;
-                font-size: 20px;
+            .decorative-badge {
+                width: 80px;
+                height: 80px;
+                font-size: 24px;
+                bottom: -20px;
+                right: -20px;
             }
 
             .services-container {
-                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-card {
+                padding: 40px 25px;
+            }
+
+            .services-title h2 {
+                font-size: 32px;
             }
         }
 
@@ -306,6 +483,16 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -314,101 +501,69 @@
             }
         }
     </style>
-    
 </head>
 <body>
+    <!-- Decorative Stars -->
+    <div class="star star-1">✦</div>
+    <div class="star star-2">✧</div>
+    <div class="star star-3">✦</div>
+    <div class="star star-4">✧</div>
+
     <!-- Header Navigation -->
     <header class="header">
         <div class="nav-container">
-            <div class="logo">Sinbadh Hospitals</div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index_staff.php">Staff?</a></li>
-                    <li><a href="patient/new_appointment.php">Book appointment</a></li>
-                </ul>
-                <button class="mobile-toggle">☰</button>
-            </nav>
+            <div style="text-align: center; width: 100%;">
+                <div class="logo">Sinbadh Hospitals</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="index_staff.php">Hospital Staff</a></li>
+                        <li><a href="patient/new_appointment.php">Book Appointment</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <button class="mobile-toggle">☰</button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>🏥 Step into the finest healthcare 🏥</h1>
-            <p>How may we help you?</p>
-        </div>
-    </section>
-
-    <!-- SLIDESHOW SECTION -->
-    <section class="slideshow-section">
-        <div class="slideshow-container">
-            <!-- SLIDE 1 - Replace image URL above in CSS -->
-            <div class="slide active">
-                <div class="slide-overlay">
-                    <div class="slide-content">
-                        <h2>World-Class Medical Facilities</h2>
-                        <p>Experience cutting-edge healthcare with our state-of-the-art medical equipment and modern facilities designed for your comfort and care.</p>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-container">
+            <!-- Left side - Image -->
+            <div class="image-section">
+                <div class="main-image"></div>
             </div>
 
-            <!-- SLIDE 2 - Replace image URL above in CSS -->
-            <div class="slide">
-                <div class="slide-overlay">
-                    <div class="slide-content">
-                        <h2>Advanced Medical Technology</h2>
-                        <p>Our hospital is equipped with the latest medical technology and diagnostic equipment to ensure accurate diagnosis and effective treatment.</p>
-                    </div>
+            <!-- Right side - Content -->
+            <div class="content-section">
+                <h1 class="content-title">
+                    Ready to experience the <span class="highlight">finest</span> healthcare?
+                </h1>
+                <p class="content-subtitle">
+                    Elevate your health journey with our world-class medical facilities, 
+                    expert healthcare professionals, and personalized treatment approaches 
+                    designed for your complete well-being.
+                </p>
+                <button class="cta-button">Book a Call</button>
+                
+                <!-- Decorative Badge -->
+                <div class="decorative-badge">
+                    🏥
                 </div>
             </div>
-
-            <!-- SLIDE 3 - Replace image URL above in CSS -->
-            <div class="slide">
-                <div class="slide-overlay">
-                    <div class="slide-content">
-                        <h2>Expert Medical Team</h2>
-                        <p>Our dedicated team of experienced doctors, nurses, and healthcare professionals are committed to providing you with the best possible care.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 4 - Replace image URL above in CSS -->
-            <div class="slide">
-                <div class="slide-overlay">
-                    <div class="slide-content">
-                        <h2>Comfortable Patient Environment</h2>
-                        <p>Our modern and comfortable hospital environment is designed to promote healing and provide a peaceful atmosphere for our patients.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 5 - Replace image URL above in CSS -->
-            <div class="slide">
-                <div class="slide-overlay">
-                    <div class="slide-content">
-                        <h2>Compassionate Patient Care</h2>
-                        <p>At Sinbadh Hospitals, we believe in providing compassionate, personalized care that addresses not just your medical needs, but your overall well-being.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation Arrows -->
-            <button class="prev" onclick="changeSlide(-1)">❮</button>
-            <button class="next" onclick="changeSlide(1)">❯</button>
-        </div>
-
-        <!-- Slide Indicators -->
-        <div class="slide-indicators">
-            <span class="indicator active" onclick="currentSlide(1)"></span>
-            <span class="indicator" onclick="currentSlide(2)"></span>
-            <span class="indicator" onclick="currentSlide(3)"></span>
-            <span class="indicator" onclick="currentSlide(4)"></span>
-            <span class="indicator" onclick="currentSlide(5)"></span>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services-section">
+        <div class="services-title">
+            <h2>Our Healthcare Services</h2>
+            <p>Comprehensive medical care tailored to your needs with compassion and expertise</p>
+        </div>
+        
         <div class="services-container">
             <div class="service-card">
                 <div class="service-icon">📋</div>
@@ -435,105 +590,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicators = document.querySelectorAll('.indicator');
-        const totalSlides = slides.length;
-
-        // Auto-advance slideshow
-        function autoSlide() {
-            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-            showSlide(currentSlideIndex);
-        }
-
-        // Set interval for auto-advance (5 seconds)
-        let slideInterval = setInterval(autoSlide, 5000);
-
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-
-            // Show current slide
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
-        }
-
-        function changeSlide(direction) {
-            // Clear auto-advance temporarily
-            clearInterval(slideInterval);
-            
-            currentSlideIndex += direction;
-            
-            if (currentSlideIndex >= totalSlides) {
-                currentSlideIndex = 0;
-            } else if (currentSlideIndex < 0) {
-                currentSlideIndex = totalSlides - 1;
-            }
-            
-            showSlide(currentSlideIndex);
-            
-            // Restart auto-advance
-            slideInterval = setInterval(autoSlide, 5000);
-        }
-
-        function currentSlide(index) {
-            // Clear auto-advance temporarily
-            clearInterval(slideInterval);
-            
-            currentSlideIndex = index - 1;
-            showSlide(currentSlideIndex);
-            
-            // Restart auto-advance
-            slideInterval = setInterval(autoSlide, 5000);
-        }
-
-        // Pause slideshow on hover
-        const slideshowContainer = document.querySelector('.slideshow-container');
-        slideshowContainer.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-
-        slideshowContainer.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(autoSlide, 5000);
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                changeSlide(-1);
-            } else if (e.key === 'ArrowRight') {
-                changeSlide(1);
-            }
-        });
-
-        // Touch/swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slideshowContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        slideshowContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const swipeDistance = touchEndX - touchStartX;
-            
-            if (Math.abs(swipeDistance) > swipeThreshold) {
-                if (swipeDistance > 0) {
-                    changeSlide(-1); // Swipe right, go to previous slide
-                } else {
-                    changeSlide(1); // Swipe left, go to next slide
-                }
-            }
-        }
-    </script>
 </body>
 </html>
