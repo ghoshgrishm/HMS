@@ -6,10 +6,9 @@ This file is for storing important points. Temporary, will delete later
 4) Adding CSRF protection
 5) Check if the contact number and email address really exist or not
 6) Do something about the blocks at the center of the page(about us, services, gallery, and contact us)
-7) Show green for available beds and red for non available beds
-8) Dashboard for daily updates for staff
-9) Keep a page to keep track of medicine stock
-10) make a patient summary page that shows all of their visit histories
-11) Make a page to let patients book their appointments and doctors can either reject or accept the request
-12) Add follow up to diagnosis_opd and discharge tables
-13) Let the patient's book their details and let the receptionist book escort details
+7) Dashboard for daily updates for staff
+8) Keep a page to keep track of medicine stock
+9) make a patient summary page that shows all of their visit histories
+10) Make a page to let patients book their appointments and doctors can either reject or accept the request
+11) Add follow up to diagnosis_opd and discharge tables
+12) Let the patient's book their details and let the receptionist book escort details
