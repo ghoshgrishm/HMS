@@ -134,7 +134,6 @@ select option {
 .new-discharge-btn,
 .new-patient-btn,
 .new-doctor-btn,
-.new-stock-btn,
 .go-home-btn,
 button[type="submit"],
 input[type="submit"] {
@@ -168,7 +167,6 @@ input[type="submit"] {
 .new-discharge-btn::before,
 .new-patient-btn::before,
 .new-doctor-btn::before,
-.new-stock-btn::before,
 .go-home-btn::before,
 button[type="submit"]::before,
 input[type="submit"]::before {
@@ -194,7 +192,6 @@ input[type="submit"]::before {
 .new-discharge-btn:hover::before,
 .new-patient-btn:hover::before,
 .new-doctor-btn:hover::before,
-.new-stock-btn:hover::before,
 .go-home-btn:hover::before,
 button[type="submit"]:hover::before,
 input[type="submit"]:hover::before {
@@ -225,11 +222,9 @@ input[type="submit"]:hover {
 .new-diagnosis-btn,
 .new-diagnosis-btn,
 .new-billing-btn,
-.new-billing-btn,
 .new-discharge-btn,
 .new-patient-btn,
-.new-doctor-btn,
-.new-stock-btn {
+.new-doctor-btn {
     background: linear-gradient(135deg, #003366, #0066cc);
     box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
 }
@@ -241,11 +236,9 @@ input[type="submit"]:hover {
 .new-diagnosis-btn:hover,
 .new-diagnosis-btn:hover,
 .new-billing-btn:hover,
-.new-billing-btn:hover,
 .new-discharge-btn:hover,
-.new-patient-btn:hover
-.new-doctor-btn:hover,
-.new-stock-btn:hover {
+.new-patient-btn:hover,
+.new-doctor-btn:hover {
     background: linear-gradient(135deg, #002244, #0052a3);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
@@ -261,8 +254,7 @@ input[type="submit"]:hover {
 .new-billing-btn::before,
 .new-discharge-btn::before,
 .new-patient-btn::before,
-.new-doctor-btn::before,
-.new-stock-btn {
+.new-doctor-btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -283,8 +275,7 @@ input[type="submit"]:hover {
 .new-billing-btn:hover::before,
 .new-discharge-btn:hover::before,
 .new-patient-btn:hover::before,
-.new-doctor-btn:hover::before,
-.new-stock-btn:hover::before {
+.new-doctor-btn:hover::before {
     left: 100%;
 }
 
@@ -585,7 +576,6 @@ tr:hover td {
     .new-discharge-btn,
     .new-patient-btn,
     .new-doctor-btn,
-    .new-stock-btn,
     .go-home-btn,
     button[type="submit"],
     input[type="submit"] {

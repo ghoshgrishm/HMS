@@ -33,6 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'nurse':
                     header("Location: nurse/home_nurse.php");
                     exit();
+                case 'pharmacy':
+                    header("Location: pharmacy/home_pharmacy.php");
+                    exit();
                 case 'reception':
                     header("Location: reception/home_reception.php");
                     exit();

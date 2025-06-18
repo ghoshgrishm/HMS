@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <h1>Check Medicine Stock</h1>
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <br>
-    <a href="new_stock.php" class="new-stock-btn">Add New Medicine:</a>
+    <a href="new_stock.php" class="new-medication-btn">Add new Medicine:</a>
     <br>
     <a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>

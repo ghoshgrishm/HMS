@@ -23,6 +23,7 @@ include("database.php");
             <option value="admin">Admin</option>
             <option value="doctor">Doctor</option>
             <option value="nurse">Nurse</option>
+            <option value="pharmacy">Pharmacy</option>
             <option value="reception">Reception</option>
             <option value="lab">Lab</option>
             <option value="billing">Billing</option>
