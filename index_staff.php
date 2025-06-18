@@ -407,34 +407,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section">
-        <div class="services-container">
-            <div class="service-card">
-                <div class="service-icon">📋</div>
-                <h3>About Us</h3>
-                <p>Where compassion meets innovation - discover our story</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🩺</div>
-                <h3>Services</h3>
-                <p>From diagnostics to emergency care - approach our services</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🖼️</div>
-                <h3>Gallery</h3>
-                <p>Experience our services through the lens - visit our gallery</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📞</div>
-                <h3>Contact us</h3>
-                <p>Your health is one click away - contact us today</p>
-            </div>
-        </div>
-    </section>
+    
 
     <script>
         let currentSlideIndex = 0;
