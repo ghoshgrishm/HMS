@@ -134,6 +134,7 @@ select option {
 .new-discharge-btn,
 .new-patient-btn,
 .new-doctor-btn,
+.new-stock-btn,
 .go-home-btn,
 button[type="submit"],
 input[type="submit"] {
@@ -167,6 +168,7 @@ input[type="submit"] {
 .new-discharge-btn::before,
 .new-patient-btn::before,
 .new-doctor-btn::before,
+.new-stock-btn::before,
 .go-home-btn::before,
 button[type="submit"]::before,
 input[type="submit"]::before {
@@ -191,7 +193,8 @@ input[type="submit"]::before {
 .new-billing-btn:hover::before,
 .new-discharge-btn:hover::before,
 .new-patient-btn:hover::before,
-.new-doctor-btn:hover::before, 
+.new-doctor-btn:hover::before,
+.new-stock-btn:hover::before,
 .go-home-btn:hover::before,
 button[type="submit"]:hover::before,
 input[type="submit"]:hover::before {
@@ -225,7 +228,8 @@ input[type="submit"]:hover {
 .new-billing-btn,
 .new-discharge-btn,
 .new-patient-btn,
-.new-doctor-btn {
+.new-doctor-btn,
+.new-stock-btn {
     background: linear-gradient(135deg, #003366, #0066cc);
     box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
 }
@@ -240,7 +244,8 @@ input[type="submit"]:hover {
 .new-billing-btn:hover,
 .new-discharge-btn:hover,
 .new-patient-btn:hover
-.new-doctor-btn:hover {
+.new-doctor-btn:hover,
+.new-stock-btn:hover {
     background: linear-gradient(135deg, #002244, #0052a3);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
@@ -256,7 +261,8 @@ input[type="submit"]:hover {
 .new-billing-btn::before,
 .new-discharge-btn::before,
 .new-patient-btn::before,
-.new-doctor-btn::before {
+.new-doctor-btn::before,
+.new-stock-btn {
     content: '';
     position: absolute;
     top: 0;
@@ -277,7 +283,8 @@ input[type="submit"]:hover {
 .new-billing-btn:hover::before,
 .new-discharge-btn:hover::before,
 .new-patient-btn:hover::before,
-.new-doctor-btn:hover::before {
+.new-doctor-btn:hover::before,
+.new-stock-btn:hover::before {
     left: 100%;
 }
 
@@ -307,7 +314,8 @@ input[type="submit"]:hover {
 .medication-record,
 .prescription-record,
 .procedure-record,
-.user-record {
+.user-record,
+.medicine-record {
     background: #ffffff;
     border-radius: 12px;
     padding: 2rem;
@@ -332,7 +340,8 @@ input[type="submit"]:hover {
 .medication-record::before,
 .prescription-record::before,
 .procedure-record::before,
-.user-record::before {
+.user-record::before,
+.medicine-record::before {
     content: '';
     position: absolute;
     top: 0;
@@ -355,7 +364,8 @@ input[type="submit"]:hover {
 .medication-record:hover,
 .prescription-record:hover,
 .procedure-record:hover,
-.user-record:hover {
+.user-record:hover,
+.medicine-record:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 35px rgba(0, 51, 102, 0.15);
 }
@@ -373,7 +383,8 @@ input[type="submit"]:hover {
 .medication-record strong,
 .prescription-record strong,
 .procedure-record strong,
-.user-record strong {
+.user-record strong,
+.medicine-record strong {
     color: #003366;
     font-weight: 700;
     display: inline-block;
@@ -537,7 +548,8 @@ tr:hover td {
     .medication-record,
     .prescription-record,
     .procedure-record,
-    .user-record {
+    .user-record,
+    .medicine-record {
         padding: 1.5rem;
     }
     
@@ -554,7 +566,8 @@ tr:hover td {
     .medication-record strong,
     .prescription-record strong,
     .procedure-record strong,
-    .user-record strong {
+    .user-record strong,
+    .medicine-record strong {
         display: block;
         min-width: auto;
         margin-bottom: 0.5rem;
@@ -572,6 +585,7 @@ tr:hover td {
     .new-discharge-btn,
     .new-patient-btn,
     .new-doctor-btn,
+    .new-stock-btn,
     .go-home-btn,
     button[type="submit"],
     input[type="submit"] {
