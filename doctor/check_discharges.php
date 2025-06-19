@@ -6,7 +6,7 @@ $searchPerformed = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST["patient_name"]);
-    $sql = "SELECT p.patient_name, d.discharge_id, d.admission_id, d.notes, d.discharge_date
+    $sql = "SELECT p.patient_name, d.discharge_id, d.admission_id, d.notes, d.discharge_date, d.follow_up
             FROM discharge d
             JOIN admission a ON d.admission_id = a.admission_id
             JOIN patient p ON a.patient_id = p.patient_id
@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong>Admission ID:</strong> <?= htmlspecialchars($discharge['admission_id']) ?><br>
                     <strong>Notes:</strong> <?= htmlspecialchars($discharge['notes']) ?><br>
                     <strong>Discharge date:</strong> <?= htmlspecialchars($discharge['discharge_date']) ?><br>
+                    <strong>Follow-up Date:</strong> <?= htmlspecialchars($discharge['follow_up']) ?><br>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
