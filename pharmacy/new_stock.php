@@ -1,12 +1,13 @@
 <?php
 include("../database.php");
 
-$medicine_name = $batch = $quantity = $purchase_date = $expiry_date = $unit_type = $cost_per_unit = "";
+$medicine_name = $company = $batch = $quantity = $purchase_date = $expiry_date = $unit_type = $cost_per_unit = "";
 $err = "";
 $success = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $medicine_name = trim($_POST["medicine_name"]);
+    $company = trim($_POST["company"]);
     $batch = trim($_POST["batch"]);
     $quantity = trim($_POST["quantity"]);
     $purchase_date = trim($_POST["purchase_date"]);
@@ -16,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($medicine_name)) {
         $err = "Please enter the medicine name";
+    } elseif (empty($company)) {
+        $err = "Please enter the manufacturer's name";
     } elseif (empty($batch)) {
         $err = "Please enter a valid batch";
     } elseif (empty($quantity) || !is_numeric($quantity)) {
@@ -32,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!$err) {
         $medicine_name = mysqli_real_escape_string($conn, $medicine_name);
+        $company = mysqli_real_escape_string($conn, $company);
         $batch = mysqli_real_escape_string($conn, $batch);
         $quantity = mysqli_real_escape_string($conn, $quantity);
         $purchase_date = mysqli_real_escape_string($conn, $purchase_date);
@@ -39,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $unit_type = mysqli_real_escape_string($conn, $unit_type);
         $cost_per_unit = mysqli_real_escape_string($conn, $cost_per_unit);
 
-        $sql = "INSERT INTO stock (medicine_name, batch, quantity, purchase_date, expiry_date, unit_type, cost_per_unit, status)
-                VALUES ('$medicine_name', '$batch', '$quantity', '$purchase_date', '$expiry_date', '$unit_type', '$cost_per_unit', 'available')";
+        $sql = "INSERT INTO stock (medicine_name, company, batch, quantity, purchase_date, expiry_date, unit_type, cost_per_unit, status)
+                VALUES ('$medicine_name', '$company', '$batch', '$quantity', '$purchase_date', '$expiry_date', '$unit_type', '$cost_per_unit', 'available')";
 
         if (mysqli_query($conn, $sql)) {
             $success = "Medicine record updated successfully";
@@ -71,6 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         Medicine name:<br>
         <input type="text" name="medicine_name" required><br>
+        Manufacturing company:<br>
+        <input type="text" name="company" required><br>
         Batch:<br>
         <input type="text" name="batch" required><br>
         Quantity:<br>

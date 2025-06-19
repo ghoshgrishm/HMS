@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="medicine-record">
                     <strong>Stock ID:</strong> <?= htmlspecialchars($stock['stock_id']) ?><br>
                     <strong>Medicine name:</strong> <?= htmlspecialchars($stock['medicine_name']) ?><br>
+                    <strong>Manufacturing company:</strong> <?= htmlspecialchars($stock['company']) ?><br>
                     <strong>Batch:</strong> <?= htmlspecialchars($stock['batch']) ?><br>
                     <strong>Quantity:</strong> <?= htmlspecialchars($stock['quantity']) ?><br>
                     <strong>Purchase date:</strong> <?= htmlspecialchars($stock['purchase_date']) ?><br>
