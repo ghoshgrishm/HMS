@@ -520,7 +520,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="index_staff.php">Hospital Staff</a></li>
-                        <li><a href="patient/new_appointment.php">Book Appointment</a></li>
+                        <li><a href="patient/index_patient.php">Book Appointment</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                     <button class="mobile-toggle">☰</button>
