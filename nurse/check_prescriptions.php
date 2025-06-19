@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php else: ?>
                         <strong>Prescription:</strong> Not uploaded<br>
                     <?php endif; ?>
+                    <strong>Follow up date:</strong> <?= htmlspecialchars($prescription['follow_up']) ?><br>
                 </div>
 
             <?php endforeach; ?>

@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dosage = mysqli_real_escape_string($conn, $_POST['dosage'] ?? '');
         $duration = mysqli_real_escape_string($conn, $_POST['duration'] ?? '');
         $charge = mysqli_real_escape_string($conn, $_POST['charge'] ?? '');
+        $follow_up = !empty($_POST['follow_up']) ? mysqli_real_escape_string($conn, $_POST['follow_up']) : null;
 
         $sql = "SELECT appointment_id FROM appointment WHERE patient_id = '$patient_id' ORDER BY appointment_date DESC LIMIT 1";
         $res = mysqli_query($conn, $sql);
@@ -59,8 +60,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($res && mysqli_num_rows($res) > 0 && !$err) {
             $appointment_id = mysqli_fetch_assoc($res)['appointment_id'];
 
-            $insert = "INSERT INTO prescription (appointment_id, medicine_details, dosage, duration, charge, file_path)
-                       VALUES ('$appointment_id', '$medicine_details', '$dosage', '$duration', '$charge', " . ($file_path ? "'$file_path'" : "NULL") . ")";
+            $insert = "INSERT INTO prescription 
+            (appointment_id, medicine_details, dosage, duration, charge, file_path, follow_up)
+            VALUES (
+                '$appointment_id',
+                '$medicine_details',
+                '$dosage',
+                '$duration',
+                '$charge',
+                " . ($file_path ? "'$file_path'" : "NULL") . ",
+                " . ($follow_up ? "'$follow_up'" : "NULL") . "
+            )";
 
             if (mysqli_query($conn, $insert)) {
                 $msg = "Prescription added successfully.";
@@ -71,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $err = "No appointment found for selected patient.";
         }
     }
+
 }
 ?>
 
@@ -103,8 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 4px;
             cursor: pointer;
         }
-        .error { color: red; }
-        .success { color: green; }
+        .error-message { color: red; }
+        .success-message { color: green; }
         .go-home-btn {
             padding: 8px 15px;
             background-color: #2196F3;
@@ -156,6 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Charge in INR: <input type="number" name="charge" step="0.01" required><br>
         <label>Attach Prescription File (PDF/Image):</label>
         <input type="file" name="prescription_file" accept=".pdf,.jpg,.jpeg,.png"><br>
+        Follow-up date: <input type="date" name="follow_up"><br>
         <button type="submit" name="record_prescription" class="btn">Record prescription</button>
     </form>
 </div>

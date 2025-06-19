@@ -10,7 +10,11 @@ This file is for storing important points. Temporary, will delete later
 8) Keep a page to keep track of medicine stock
 9) make a patient summary page that shows all of their visit histories
 10) Make a page to let patients book their appointments and doctors can either reject or accept the request
-11) Add follow up to diagnosis_opd and discharge tables
 12) Let the patient's book their details and let the receptionist book escort details
-13) Learn about google suggestions(pop downs when you search something)
 14) fIND A WAY TO CHECK IF THE patient IS FOLLOW UP OR A NEW PATIENT AND CHECK THE PROXIMITY OF HIS NAME AS HE MIGHT HAVE A SPELLING MISTAKE IN HIS NAME
+
+
+Future improvements:
+1) Find a way to scan medicine lists and auto-query into the stock table
+2) Using suggestions whilst searching for medicine by name(like google suggestions)
+3) 
