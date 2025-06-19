@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
         <?php endforeach; ?>
     <?php else: ?>
-        <p>No matching patients found.</p>
+        <p class="error-message">No matching patients found.</p>
     <?php endif; ?>
 <?php endif; ?>
 

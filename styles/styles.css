@@ -48,6 +48,9 @@ h2 {
     color: #003366;
     border-left: 4px solid #003366;
     padding-left: 1rem;
+    width: 100%;
+    max-width: 600px;
+    align-self: center;
 }
 
 /* Form Styling */
@@ -521,6 +524,7 @@ tr:hover td {
     
     h2 {
         font-size: 1.6rem;
+        max-width: 100%;
     }
     
     form {
