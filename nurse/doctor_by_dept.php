@@ -7,9 +7,9 @@ $searchPerformed = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dept_name = mysqli_real_escape_string($conn, $_POST["dept_name"]);
     $sql = "SELECT doctor.*, department.dept_name 
-        FROM doctor 
-        LEFT JOIN department ON doctor.department_id = department.department_id 
-        WHERE LOWER(department.dept_name) LIKE LOWER('%$dept_name%')";
+            FROM doctor 
+            LEFT JOIN department ON doctor.department_id = department.department_id 
+            WHERE LOWER(department.dept_name) LIKE LOWER('%$dept_name%')";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search by Department</title>
     <style>
         body {
@@ -39,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 15px;
             border-radius: 5px;
         }
-        .search-btn, .go-home-btn {
+        .search-btn, .go-home-btn, .doctor-slots-btn {
             padding: 8px 15px;
             background-color: #4CAF50;
             color: white;
@@ -48,12 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            margin-top: 10px;
         }
         .go-home-btn {
             background-color: #2196F3;
             margin-top: 10px;
         }
-        .search-btn:hover, .go-home-btn:hover {
+        .search-btn:hover, .go-home-btn:hover, .doctor-slots-btn:hover {
             opacity: 0.9;
         }
     </style>
@@ -77,27 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong>Name:</strong> <?= htmlspecialchars($doctor['doctor_name']) ?><br>
                     <strong>Specialty:</strong> <?= htmlspecialchars($doctor['specialty']) ?><br>
                     <strong>Department:</strong> <?= htmlspecialchars($doctor['dept_name']) ?><br>
-                    <strong>Slots:</strong><br>
-                    <strong>8:00 - 9:00</strong> <?= htmlspecialchars($doctor['eight_to_nine']) ?><br>
-                    <strong>9:00 - 10:00</strong> <?= htmlspecialchars($doctor['nine_to_ten']) ?><br>
-                    <strong>10:00 - 11:00</strong> <?= htmlspecialchars($doctor['ten_to_eleven']) ?><br>
-                    <strong>11:00 - 12:00</strong> <?= htmlspecialchars($doctor['eleven_to_twelve']) ?><br>
-                    <strong>12:00 - 13:00</strong> <?= htmlspecialchars($doctor['twelve_to_one']) ?><br>
-                    <strong>13:00 - 14:00</strong> <?= htmlspecialchars($doctor['one_to_two']) ?><br>
-                    <strong>14:00 - 15:00</strong> <?= htmlspecialchars($doctor['two_to_three']) ?><br>
-                    <strong>15:00 - 16:00</strong> <?= htmlspecialchars($doctor['three_to_four']) ?><br>
-                    <strong>16:00 - 17:00</strong> <?= htmlspecialchars($doctor['four_to_five']) ?><br>
-                    <strong>17:00 - 18:00</strong> <?= htmlspecialchars($doctor['five_to_six']) ?><br>
-                    <strong>18:00 - 19:00</strong> <?= htmlspecialchars($doctor['six_to_seven']) ?><br>
-                    <strong>19:00 - 20:00</strong> <?= htmlspecialchars($doctor['seven_to_eight']) ?><br>
-                    <strong>20:00 - 21:00</strong> <?= htmlspecialchars($doctor['eight_to_nine_pm']) ?><br>
-                    <strong>21:00 - 22:00</strong> <?= htmlspecialchars($doctor['nine_to_ten_pm']) ?><br>
+                    <a href="doctor_slots.php?doctor_id=<?= $doctor['doctor_id'] ?>" class="new-patient-btn">Check doctor slots</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p class="error-message">No departments found matching your search.</p>
         <?php endif; ?>
     <?php endif; ?>
+
     <br>
     <a href="home_nurse.php" class="go-home-btn">Go home</a>
 </body>

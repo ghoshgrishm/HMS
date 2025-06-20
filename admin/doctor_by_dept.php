@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong>Name:</strong> <?= htmlspecialchars($doctor['doctor_name']) ?><br>
                     <strong>Specialty:</strong> <?= htmlspecialchars($doctor['specialty']) ?><br>
                     <strong>Department:</strong> <?= htmlspecialchars($doctor['dept_name']) ?><br>
-                    <a href="doctor_slots.php?doctor_id=<?= $doctor['doctor_id'] ?>" class="doctor-slots-btn">Check doctor slots</a>
+                    <a href="doctor_slots.php?doctor_id=<?= $doctor['doctor_id'] ?>" class="new-patient-btn">Check doctor slots</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

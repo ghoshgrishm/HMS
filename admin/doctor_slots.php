@@ -1,16 +1,7 @@
 <?php
 include("../database.php");
+date_default_timezone_set("Asia/Kolkata");
 
-// Check if today is Sunday and it's 10:00 PM or later
-date_default_timezone_set("Asia/Kolkata"); // set your time zone
-$today = date("w"); // 0 = Sunday
-$timeNow = date("H:i");
-
-if ($today != 0 || $timeNow < "22:00") {
-    exit("Not time yet.");
-}
-
-// Define time slots
 $time_slots = [
     'eight_to_nine', 'nine_to_ten', 'ten_to_eleven', 'eleven_to_twelve',
     'twelve_to_one', 'one_to_two', 'two_to_three', 'three_to_four',
@@ -35,6 +26,10 @@ for ($i = 0; $i < 7; $i++) {
 // Insert slots for each doctor for each day
 foreach ($doctors as $doctor_id) {
     foreach ($dates as $date) {
+        // Prevent duplicates
+        $check = mysqli_query($conn, "SELECT * FROM slot WHERE doctor_id = $doctor_id AND date = '$date'");
+        if (mysqli_num_rows($check) > 0) continue;
+
         $columns = "doctor_id, date, " . implode(", ", $time_slots);
         $values = [$doctor_id, "'$date'"];
         foreach ($time_slots as $slot) {
@@ -48,5 +43,3 @@ foreach ($doctors as $doctor_id) {
 }
 
 mysqli_close($conn);
-echo "Slots created for next week.";
-?>
