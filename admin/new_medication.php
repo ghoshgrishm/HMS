@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-<h2>Record Medication report for IPD Patient</h2>
+<h1>Record Medication report for IPD Patient</h1>
 
 <?php if ($err): ?><p class="error-message"><?= $err ?></p><?php endif; ?>
 <?php if ($msg): ?><p class="success-message"><?= $msg ?></p><?php endif; ?>

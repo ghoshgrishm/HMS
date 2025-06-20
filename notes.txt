@@ -4,17 +4,31 @@ This file is for storing important points. Temporary, will delete later
 2) SQL attack prevention
 3) Using sessions for each page
 4) Adding CSRF protection
-5) Check if the contact number and email address really exist or not
-6) Do something about the blocks at the center of the page(about us, services, gallery, and contact us)
-7) Dashboard for daily updates for staff
-8) Keep a page to keep track of medicine stock
-9) make a patient summary page that shows all of their visit histories
-10) Make a page to let patients book their appointments and doctors can either reject or accept the request
-12) Let the patient's book their details and let the receptionist book escort details
-14) fIND A WAY TO CHECK IF THE patient IS FOLLOW UP OR A NEW PATIENT AND CHECK THE PROXIMITY OF HIS NAME AS HE MIGHT HAVE A SPELLING MISTAKE IN HIS NAME
+5) Do something about the blocks at the center of the page(about us, services, gallery, and contact us)
+
+1) Make a page to let patients book their appointments and doctors can either reject or accept the request
+2) Let the patient's book their details and let the receptionist book escort details
+3) fIND A WAY TO CHECK IF THE patient IS FOLLOW UP OR A NEW PATIENT AND CHECK THE PROXIMITY OF HIS NAME AS HE MIGHT HAVE A SPELLING MISTAKE IN HIS NAME
 
 
 Future improvements:
 1) Find a way to scan medicine lists and auto-query into the stock table
 2) Using suggestions whilst searching for medicine by name(like google suggestions)
-3) 
+3) Dashboard for daily updates for staff
+4) Scanning IDs for verification
+5) Email and contact number verification
+6) Auto alert for low stock of medicine
+7) Follow-up reminder for patients
+8) Tracking patient's allergies so as to not asign any allergy causing medicines
+9) A tracker that shows the most common viral disease per week/month and predicts the cause
+10) Predicting upcoming diseases according seasonal and recent changes
+11) Extracting text from handwriting for prescriptions
+12) High alrt flags for critical patients
+13) Patient status tracker(which department, bed, doctor, Ipd/Opd, etc)
+14) Emergency quick admit for critical conditions
+15) Medication reminder for nurses
+16) Verification for staff before logging in or for forgot password
+17) A way to upload bills, prescriptions and other reports
+
+Temporary prompt for claude
+This is page used by hospital staff and the code is for the same page called index_staff.php. I want one for patients as well. Make the page like this with similar theme but different look, something that is more aesthetic for professional and customer look. The page should highlight two clickable boxes to ask the patient if they have visited the hospital before: "I have visited the hospital before" and "I have not visited the hospital yet" and on click the boxes redirect to visited.php and not_visited.php

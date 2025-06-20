@@ -98,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 <?php endif; ?>
 
+<br><a href="new_patient.php" class="new-patient-btn">Register new patient</a>
 <br><a href="home_admin.php" class="go-home-btn">Go home</a>
 </body>
 </html>
