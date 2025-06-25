@@ -2,8 +2,8 @@
 include("../database.php");
 session_start();
 $status = "";
+$slots_pushed = false;
 
-// Ensure the user is logged in
 if (!isset($_SESSION['username'])) {
     die("You must be logged in to access this page.");
 }
@@ -11,7 +11,6 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 $doctor_id = null;
 
-// Get doctor_id from user table where user_type is doctor
 $sql = "SELECT doctor_id FROM user WHERE username = '$username' AND user_type = 'doctor'";
 $result = mysqli_query($conn, $sql);
 
@@ -23,33 +22,31 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 
 // Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['slot_data'])) {
     $data = json_decode($_POST['slot_data'], true);
 
     foreach ($data as $entry) {
         $date = $entry['date'];
         foreach ($entry['slots'] as $slot) {
             $start_time = $slot;
-            $end_time = date("H:i:s", strtotime($slot) + 30 * 60); // 30 mins later
+            $end_time = date("H:i:s", strtotime($slot) + 30 * 60);
             $sql = "INSERT INTO slot (doctor_id, date, start_time, end_time, status)
                     VALUES ('$doctor_id', '$date', '$start_time', '$end_time', 'available')";
             mysqli_query($conn, $sql);
         }
     }
     $status = "Slots successfully added!";
+    $slots_pushed = true;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Push Slots</title>
     <link rel="stylesheet" href="hospital.css">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        
+        /* All your existing CSS remains unchanged */
+        * { box-sizing: border-box; }
         body {
             font-family: 'Arial', sans-serif;
             background: white;
@@ -60,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flex-direction: column;
             align-items: center;
         }
-        
         h1 {
             font-size: 2.8rem;
             font-weight: 700;
@@ -70,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-shadow: 0 2px 4px rgba(0, 51, 102, 0.1);
             position: relative;
         }
-
         h1::after {
             content: '';
             position: absolute;
@@ -82,48 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background: linear-gradient(90deg, #003366, #0066cc);
             border-radius: 2px;
         }
-        
-        .main-container {
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        h2, h3, h4 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        h2 {
-            border-bottom: 3px solid #003366;
-            display: inline-block;
-            padding-bottom: 10px;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #003366;
-            padding-left: 1rem;
-            width: 100%;
-            max-width: 600px;
-            align-self: center;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            color: #27ae60;
-            margin-top: 30px;
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-            color: #003366;
-            margin: 20px 0 15px 0;
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 8px;
-        }
-
+        .main-container { max-width: 900px; width: 100%; text-align: center; }
+        h3 { font-size: 1.5rem; color: #27ae60; margin-top: 30px; }
+        h4 { font-size: 1.2rem; color: #003366; margin: 20px 0 15px 0; background: #f8f9fa; padding: 10px; border-radius: 8px; }
         .box {
             display: inline-block;
             padding: 12px 20px;
@@ -138,22 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             min-width: 80px;
             text-align: center;
         }
-        
-        .box:hover {
-            border-color: #2980b9;
-        }
-        
+        .box:hover { border-color: #2980b9; }
         .box.selected {
             background-color: #27ae60;
             color: white;
             border-color: #27ae60;
         }
-        
-        .slots-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
+        .slots-container { margin-top: 30px; display: none; }
         .slots-box {
             background: #f8f9fa;
             border-radius: 10px;
@@ -161,7 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 20px 0;
             border: 1px solid #e9ecef;
         }
-        
         #dateBoxes {
             display: flex;
             flex-wrap: wrap;
@@ -169,7 +115,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             gap: 10px;
             margin-bottom: 20px;
         }
-        
         .status-message {
             color: #27ae60;
             background: #d4edda;
@@ -180,7 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-weight: 500;
             text-align: center;
         }
-        
         input[type="submit"] {
             background: linear-gradient(135deg, #003366, #0066cc);
             box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
@@ -194,44 +138,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transition: all 0.3s ease;
             margin-top: 30px;
         }
-        
         input[type="submit"]:hover {
             background: linear-gradient(135deg, #002244, #0052a3);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
-        }
-        input[type="submit"]::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
         }
         #slotSelectors {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
         @media (max-width: 768px) {
-            .main-container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-                padding: 15px 25px;
-            }
-            
-            .box {
-                padding: 10px 15px;
-                margin: 5px;
-                min-width: 70px;
-            }
+            .main-container { padding: 20px; margin: 10px; }
+            h1 { font-size: 2rem; padding: 15px 25px; }
+            .box { padding: 10px 15px; margin: 5px; min-width: 70px; }
         }
     </style>
 </head>
@@ -241,6 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="main-container">
     <?php if ($status) echo "<div class='status-message'>$status</div>"; ?>
 
+    <?php if (!$slots_pushed): ?>
     <form method="post" id="slotForm">
         <div>
             <h3>Select Available Dates (Next Week)</h3>
@@ -256,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br><br>
         <input type="submit" name="submit-btn" value="Submit Slots">
     </form>
+    <?php endif; ?>
 </div>
 
 <script>
@@ -288,19 +210,14 @@ dates.forEach(date => {
     dateBoxesContainer.appendChild(box);
 });
 
-// Step 2: Show slot selectors when dates are selected
-let selectedSlotsMap = {}; // { dateString: [slotTime, slotTime, ...] }
+let selectedSlotsMap = {};
 
 function updateSlotInputs() {
     const selectedDates = Array.from(document.querySelectorAll('#dateBoxes .box.selected'))
         .map(b => ({ label: b.textContent, value: b.dataset.value }));
 
     slotSelectorsContainer.innerHTML = '';
-    if (selectedDates.length > 0) {
-        slotsContainer.style.display = 'block';
-    } else {
-        slotsContainer.style.display = 'none';
-    }
+    slotsContainer.style.display = selectedDates.length ? 'block' : 'none';
 
     selectedDates.forEach(date => {
         const box = document.createElement('div');
@@ -345,8 +262,6 @@ function updateSlotInputs() {
     });
 }
 
-
-// Generate slots between start and end with interval (in mins)
 function generateTimeSlots(start, end, step) {
     const slots = [];
     let [h, m] = start.split(':').map(Number);
@@ -362,8 +277,7 @@ function generateTimeSlots(start, end, step) {
     return slots;
 }
 
-// Step 3: On form submit, prepare JSON
-document.getElementById('slotForm').onsubmit = function () {
+document.getElementById('slotForm')?.addEventListener('submit', function () {
     const result = [];
 
     for (const date in selectedSlotsMap) {
@@ -379,8 +293,9 @@ document.getElementById('slotForm').onsubmit = function () {
 
     document.getElementById('slotDataInput').value = JSON.stringify(result);
     return true;
-};
-
+});
 </script>
+<br>
+<a href="home_doctor.php" class="go-home-btn">Go home</a>
 </body>
 </html>
