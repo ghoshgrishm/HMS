@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (mysqli_query($conn, $sql)) {
                 $new_id = mysqli_insert_id($conn);
-                header("Location: new_appointment.php?patient_id=$new_id");
+                header("Location: new_request.php?patient_id=$new_id");
                 exit();
             } else {
                 echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";

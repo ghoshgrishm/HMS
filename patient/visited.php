@@ -34,11 +34,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Visited</title>
-  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/styles.css">
+  <style>
+    .card {
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .card:hover {
+      background-color: #e6f0ff;
+    }
+  </style>
   <script>
     function selectPatient(patient) {
       // You can pass ID or more data via query string
-      window.location.href = `new_appointment.php?patient_id=${patient.patient_id}`;
+      window.location.href = `check_requests.php?patient_id=` + encodeURIComponent(patient.patient_id);
     }
   </script>
 </head>
@@ -62,10 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h3>Click a patient to continue:</h3>
       <?php foreach ($patients as $p): ?>
         <div class="card" onclick='selectPatient(<?= json_encode($p) ?>)'>
-          <strong>ID:</strong> <?= $p['patient_id'] ?> |
-          <strong>Name:</strong> <?= $p['patient_name'] ?> |
-          <strong>Age:</strong> <?= $p['age'] ?> |
-          <strong>DOB:</strong> <?= $p['dob'] ?>
+          <strong>ID:</strong> <?= $p['patient_id'] ?><br>
+          <strong>Name:</strong> <?= $p['patient_name'] ?><br>
+          <strong>Age:</strong> <?= $p['age'] ?><br>
+          <strong>DOB:</strong> <?= $p['dob'] ?><br>
         </div>
       <?php endforeach; ?>
     <?php else: ?>
