@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </script>
 </head>
 <body>
-  <h1>Please search for your record by entering your name</h1>
+  <h1>Registered Patient</h1>
   
   <form method="post">
         <label for="patient_name">Enter your full name:</label><br>
