@@ -32,14 +32,6 @@ $query = "
 ";
 $result = mysqli_query($conn, $query);
 $all_requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-$has_pending = false;
-foreach ($all_requests as $req) {
-    if ($req['status'] === 'pending') {
-        $has_pending = true;
-        break;
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -59,33 +51,14 @@ foreach ($all_requests as $req) {
             margin-bottom: 20px;
         }
 
-        table {
-            width: 90%;
-            margin: auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 12px 16px;
-            border: 1px solid #ccc;
-        }
-
-        th {
-            background-color: #003366;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f4f6f9;
-        }
         .card {
             border: 2px solid #007BFF;
             border-radius: 10px;
             padding: 15px;
-            margin: 10px 0;
+            margin: 10px auto;
             background-color: #f9f9f9;
+            width: 90%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .card h3 {
             margin-top: 0;
@@ -93,6 +66,11 @@ foreach ($all_requests as $req) {
         .status {
             font-weight: bold;
             color: #007BFF;
+        }
+        .success-msg {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
         }
         .cancel-btn {
             margin-top: 10px;
@@ -103,7 +81,6 @@ foreach ($all_requests as $req) {
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
-            cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(217, 44, 44, 0.3);
         }
@@ -115,36 +92,23 @@ foreach ($all_requests as $req) {
             background: linear-gradient(135deg, #003366, #0066cc);
             box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
             color: white;
-            padding: 15px 40px;
+            padding: 0.9rem 2rem;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 30px;
-            padding: 0.9rem 2rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            text-align: center;
-            margin: 0.5rem 0.5rem 0.5rem 0;
-            color: #ffffff;
-            transition: all 0.3s ease;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            width: fit-content;
         }
         .btn:hover {
             background: linear-gradient(135deg, #002244, #0052a3);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
-        }
-        @media (max-width: 768px) {
-            .main-container { padding: 20px; margin: 10px; }
-            h1 { font-size: 2rem; padding: 15px 25px; }
-            .box { padding: 10px 15px; margin: 5px; min-width: 70px; }
         }
     </style>
 </head>
@@ -153,17 +117,13 @@ foreach ($all_requests as $req) {
     <h1>My Appointment Requests</h1>
 
     <?php if (empty($all_requests)): ?>
-        <p>No appointment requests found.</p>
-
-    <?php elseif (!$has_pending): ?>
-        <p>No pending requests.</p>
-
+        <p style="text-align: center;">No appointment requests found.</p>
     <?php else: ?>
         <?php foreach ($all_requests as $row): ?>
             <div class="card">
-                <h3>Doctor: <?= $row['doctor_name'] ?></h3>
-                <p>Date: <?= $row['date'] ?> <br>
-                   Time: <?= $row['start_time'] ?> - <?= $row['end_time'] ?></p>
+                <h3>Doctor: <?= htmlspecialchars($row['doctor_name']) ?></h3>
+                <p>Date: <?= htmlspecialchars($row['date']) ?> <br>
+                   Time: <?= htmlspecialchars($row['start_time']) ?> - <?= htmlspecialchars($row['end_time']) ?></p>
                 <p>Status: <span class="status"><?= ucfirst($row['status']) ?></span></p>
 
                 <?php if ($row['status'] === 'pending'): ?>
@@ -173,11 +133,13 @@ foreach ($all_requests as $req) {
                     </form>
                 <?php elseif ($row['status'] === 'cancelled'): ?>
                     <p>Cancelled By: <?= ucfirst($row['cancelled_by']) ?></p>
+                <?php elseif ($row['status'] === 'booked'): ?>
+                    <p class="success-msg">✅ Congrats, your appointment has been successfully booked!</p>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
-<br>
-<a href="new_request.php" class="btn">Make a new request</a>
+
+    <a href="new_request.php" class="btn">Make a new request</a>
 </body>
 </html>

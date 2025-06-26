@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 include("database.php");
 
 $err = "";
@@ -22,6 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["username"] = $username;
             $_SESSION["user_type"] = $user_type;
             $_SESSION["user_id"] = $row['user_id'];
+
+            if ($user_type === 'doctor') {
+                $_SESSION["doctor_id"] = $row["doctor_id"]; // ✅ Directly set doctor_id
+            }
 
             switch ($user_type) {
                 case 'admin':
@@ -92,10 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script>
         function togglePassword() {
-        const field = document.getElementById("password");
-        field.type = field.type === "password" ? "text" : "password";
+            const field = document.getElementById("password");
+            field.type = field.type === "password" ? "text" : "password";
         }
     </script>
-
 </body>
 </html>
