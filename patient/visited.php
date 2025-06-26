@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script>
     function selectPatient(patient) {
       // You can pass ID or more data via query string
-      window.location.href = `check_requests.php?patient_id=` + encodeURIComponent(patient.patient_id);
+      window.location.href = `check_or_new.php?patient_id=` + encodeURIComponent(patient.patient_id);
     }
   </script>
 </head>

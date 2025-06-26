@@ -162,7 +162,6 @@ $all_requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <a href="new_request.php" class="btn">Make a new request</a>
     <a href="index_patient.php" class="go-home-btn">Go home</a>
 </body>
 </html>
