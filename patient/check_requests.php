@@ -110,6 +110,28 @@ $all_requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
         }
+        .go-home-btn {
+            background: linear-gradient(135deg, #6f42c1, #8a63d2);
+            box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            width: fit-content;
+        }
+        .go-home-btn:hover {
+            background: linear-gradient(135deg, #5a32a3, #7952b3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(111, 66, 193, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -141,5 +163,6 @@ $all_requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php endif; ?>
 
     <a href="new_request.php" class="btn">Make a new request</a>
+    <a href="index_patient.php" class="go-home-btn">Go home</a>
 </body>
 </html>
