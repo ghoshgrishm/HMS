@@ -29,6 +29,4 @@ Future improvements:
 15) Medication reminder for nurses
 16) Verification for staff before logging in or for forgot password
 17) A way to upload bills, prescriptions and other reports
-
-Temporary prompt for claude
-This is page used by hospital staff and the code is for the same page called index_staff.php. I want one for patients as well. Make the page like this with similar theme but different look, something that is more aesthetic for professional and customer look. The page should highlight two clickable boxes to ask the patient if they have visited the hospital before: "I have visited the hospital before" and "I have not visited the hospital yet" and on click the boxes redirect to visited.php and not_visited.php
+18) Buffer table for slots and updates happen every day
